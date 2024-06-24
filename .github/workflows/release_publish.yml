@@ -1,4 +1,3 @@
-# npmjs registry 퍼블리시
 name: publish
 
 on:
