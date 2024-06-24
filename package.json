@@ -63,7 +63,5 @@
 		"@storybook/test": "8.2.0-alpha.10",
 		"@storybook/addon-interactions": "8.2.0-alpha.10"
 	},
-	"svelte": "./dist/index.js",
-	"types": "./dist/index.d.ts",
 	"type": "module"
 }
