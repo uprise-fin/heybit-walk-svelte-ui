@@ -1,0 +1,21 @@
+:root {
+	--walk__black--900: #202223;
+	--walk__black--800: #414244;
+	--walk__black--700: #5f6163;
+	--walk__black--600: #737577;
+	--walk__black--500: #9c9ea0;
+	--walk__black--400: #babcbe;
+	--walk__black--300: #dee0e2;
+	--walk__black--200: #eceef0;
+	--walk__black--100: #f2f4f6;
+	--walk__black--50: #f7fafc;
+	--walk__black: var(--walk__black--900);
+
+	--walk__purple--700: #6643cc;
+	--walk__purple--600: #8054ff;
+	--walk__purple--500: #9887ff;
+	--walk__purple: var(--walk__purple--600);
+	--walk__primary: var(--walk__purple);
+
+	--walk__coral-red--500: #ff7759;
+}
