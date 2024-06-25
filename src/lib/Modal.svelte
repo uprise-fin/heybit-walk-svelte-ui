@@ -31,10 +31,7 @@
 </script>
 
 <div
-	class="dialog"
-	class:is-padded={layout === 'padded'}
-	class:is-centered={layout === 'centered'}
-	class:is-fullscreen={layout === 'fullscreen'}
+	class={['dialog', `is-${layout}`].join(' ')}
 	class:is-open={open}
 	class:dialog--toast={toast}
 	style={`--width: ${width}; --background: ${background};`}
