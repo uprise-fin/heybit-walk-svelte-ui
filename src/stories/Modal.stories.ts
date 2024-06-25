@@ -47,6 +47,13 @@ const meta = {
 				},
 				defaultValue: { summary: 'true' }
 			}
+		},
+		icon: {
+			table: {
+				type: {
+					summary: '{ src: string, width: string, height: string }'
+				}
+			}
 		}
 	},
 	parameters: {
