@@ -26,5 +26,18 @@
 	--walk__purple: var(--walk__purple--600);
 	--walk__primary: var(--walk__purple);
 
+	--walk__secondary--900: #f67f00;
+	--walk__secondary--800: #f8aa00;
+	--walk__secondary--700: #f7c200;
+	--walk__secondary--600: #f7db10;
+	--walk__secondary--500: #f5ec17;
+	--walk__secondary--400: #f8f148;
+	--walk__secondary--300: #f8f36b;
+	--walk__secondary--200: #f8f36b;
+	--walk__secondary--100: #fcfac1;
+	--walk__secondary--50: #fefee6;
+
+	--walk__secondary: var(--walk__secondary--500);
+
 	--walk__coral-red--500: #ff7759;
 }
