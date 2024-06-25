@@ -16,7 +16,7 @@
 <ul class="list">
 	{#each list as src}
 		<li class="list__item">
-			<button class="list__button" on:click={() => copyContent(src)}>
+			<button class="list__button" on:click={() => copyContent(`<Icon src="${src}" />`)}>
 				<Icon {src} />
 				<span class="list__name">
 					{src.split('/').pop()}
