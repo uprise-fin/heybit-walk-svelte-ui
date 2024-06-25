@@ -1,0 +1,49 @@
+{/* https://storybook.js.org/docs/api/doc-block-colorpalette */}
+import { ColorItem, ColorPalette, Meta } from '@storybook/blocks'
+
+<style>{`.docblock-colorpalette > div { gap: 0 10px; } .docblock-colorpalette > div > div:first-child { flex-basis: 120px; }`}</style>
+
+<Meta title="Foundation/Color" />
+
+<ColorPalette>
+	<ColorItem
+		title="Black"
+		colors={{
+			['--walk__black--900']: '#202223',
+			['--walk__black--800']: '#414244',
+			['--walk__black--700']: '#5f6163',
+			['--walk__black--600']: '#737577',
+			['--walk__black--500']: '#9c9ea0',
+		}}
+	/>
+	<ColorItem
+		colors={{
+			['--walk__black--400']: '#babcbe',
+			['--walk__black--300']: '#dee0e2',
+			['--walk__black--200']: '#eceef0',
+			['--walk__black--100']: '#f2f4f6',
+			['--walk__black--50']: '#f7fafc'
+		}}
+	/>
+
+    <ColorItem
+    	title="Purple(Primary)"
+    	colors={{
+    		['--walk__purple--900']: '#422b82',
+    		['--walk__purple--800']: '#5236a3',
+    		['--walk__purple--700']: '#6643cc',
+    		['--walk__purple--600']: '#8054ff',
+    		['--walk__purple--500']: '#9887ff'
+    	}}
+    />
+    <ColorItem
+    	colors={{
+    		['--walk__purple--400']: '#bbb0ff',
+    		['--walk__purple--300']: '#cbc3ff',
+    		['--walk__purple--200']: '#e7e3ff',
+    		['--walk__purple--100']: '#f0f0ff',
+    		['--walk__purple--50']: '#f7f7ff'
+    	}}
+    />
+
+</ColorPalette>
