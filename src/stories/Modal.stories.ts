@@ -69,7 +69,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
+export const basic: Story = {
 	args: {
 		open: true,
 		title: '發生未知錯誤。',
@@ -89,18 +89,9 @@ export const Basic: Story = {
 	}
 };
 
-// export const fullscreen = {
-//   parameters: {
-//     docs: {
-//       source: {
-//         code: null,
-//       },
-//     },
-//   },
-//   render: () => ({
-//     Component: FullscreenModal,
-//     props: {
-//       title: '설렘가득 2월에는 골드바와 상품권을 드려요!',
-//     },
-//   }),
-// }
+export const fullscreen = {
+	args: {
+		...basic.args,
+		layout: 'fullscreen'
+	}
+};

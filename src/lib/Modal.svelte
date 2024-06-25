@@ -11,15 +11,14 @@
 	export let isVerticalLayout = false;
 	export let layout: Layout = 'centered';
 	export let showCloseButton = true;
-	export let footers: Partial<ButtonOption>[] | undefined =
-		layout === 'fullscreen' ? [] : undefined;
-	export let background = '#fff';
+	export let footers: Partial<ButtonOption>[] | undefined = undefined;
+	export let background = layout === 'fullscreen' ? 'transparent' : '#fff';
+
 	export let icon: IconSource | undefined = undefined;
 
 	const dispatch = createEventDispatcher<{ close: undefined }>();
 
-	$: _showCloseButton = layout !== 'fullscreen' && showCloseButton;
-	$: availableCloseButton = !keepDialog && _showCloseButton;
+	$: availableCloseButton = !keepDialog && showCloseButton;
 
 	const closeModal = () => {
 		open = false;
@@ -43,7 +42,7 @@
 
 	<article class="dialog__container">
 		<header class="dialog__header">
-			{#if availableCloseButton}
+			{#if layout !== 'fullscreen' && availableCloseButton}
 				<button class="dialog__close" on:click={handleClick}>
 					<span class="dialog__close-inner">close</span>
 				</button>
@@ -72,6 +71,12 @@
 			{/if}
 		</GroupButton>
 	</article>
+
+	{#if layout === 'fullscreen' && availableCloseButton}
+		<button class="dialog__close dialog__close--fixed" on:click={handleClick}>
+			<span class="dialog__close-inner">close</span>
+		</button>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -102,7 +107,12 @@
 			top: 0;
 			right: 0;
 			bottom: 0;
-			background: rgba(0, 0, 0, 0.4);
+			background: #000;
+			opacity: 0.4;
+
+			.is-fullscreen & {
+				opacity: 0.8;
+			}
 		}
 
 		&__container {
@@ -112,12 +122,9 @@
 			width: min(calc((100% - 6px) - 2em), var(--width));
 			max-height: calc((100% - 6px) - 2em);
 			margin: auto;
+			padding: var(--padding-block) 20px;
 			border-radius: 28px;
 			background: var(--background);
-
-			:not(.is-fullscreen) & {
-				padding: var(--padding-block) 20px;
-			}
 
 			.is-centered & {
 				text-align: center;
@@ -134,10 +141,6 @@
 				padding-bottom: env(safe-area-inset-bottom);
 				border-end-end-radius: 0;
 				border-end-start-radius: 0;
-			}
-
-			.dialog--toast:not(.is-fullscreen) & {
-				padding-bottom: calc(var(--padding-block) + env(safe-area-inset-bottom));
 			}
 
 			.is-open.dialog--toast & {
@@ -159,6 +162,10 @@
 
 			&:empty {
 				display: none;
+			}
+
+			.is-fullscreen & {
+				color: #fff;
 			}
 		}
 
@@ -202,6 +209,22 @@
 			+ * {
 				clear: both;
 			}
+
+			&--fixed {
+				position: fixed;
+				right: 12px;
+				top: 12px;
+				margin: 0;
+
+				&::before,
+				&::after {
+					background: #fff;
+				}
+
+				.dialog__close-inner {
+					background: var(--walk__black--700);
+				}
+			}
 		}
 
 		&__close-inner {
@@ -218,6 +241,10 @@
 			font-size: 13px;
 			line-height: 1.5;
 			color: var(--walk__black--700);
+
+			.is-fullscreen & {
+				color: #fff;
+			}
 		}
 
 		:global(.group-button:not(:empty)) {
