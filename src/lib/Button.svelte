@@ -189,6 +189,7 @@
 
 		&__icon {
 			flex: 0 0 auto;
+			font-size: 0;
 		}
 
 		:global(.loader) {
