@@ -1,0 +1,254 @@
+<script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+	import { Button, GroupButton, type ButtonOption, type Layout } from '.';
+
+	export let open = false;
+	export let width = '310px';
+	export let toast = false;
+	export let title = '';
+	export let content = '';
+	export let keepDialog = false;
+	export let isVerticalLayout = false;
+	export let layout: Layout = 'centered';
+	export let showCloseButton = true;
+	export let footers: Partial<ButtonOption>[] | undefined =
+		layout === 'fullscreen' ? [] : undefined;
+	export let background = '#fff';
+	export let icon = '';
+
+	const dispatch = createEventDispatcher<{ close: undefined }>();
+
+	$: _showCloseButton = layout !== 'fullscreen' && showCloseButton;
+	$: availableCloseButton = !keepDialog && _showCloseButton;
+
+	const closeModal = () => {
+		open = false;
+		dispatch('close');
+	};
+
+	const handleClick = () => {
+		!keepDialog && closeModal();
+	};
+</script>
+
+<div
+	class="dialog"
+	class:is-centered={layout === 'centered'}
+	class:is-fullscreen={layout === 'fullscreen'}
+	class:is-open={open}
+	class:dialog--toast={toast}
+	style={`--width: ${width}; --background: ${background};`}
+>
+	<span class="dialog__backdrop" aria-hidden="true" on:click={handleClick} />
+
+	<article class="dialog__container">
+		<header class="dialog__header">
+			{#if availableCloseButton}
+				<button class="dialog__close" on:click={handleClick}>
+					<span class="dialog__close-inner">close</span>
+				</button>
+			{/if}
+			<slot name="icon">
+				{#if icon}
+					<i class="dialog__icon">
+						<img src={icon} alt="" />
+					</i>
+				{/if}
+			</slot>
+			<h1 class="dialog__title">{@html title}</h1>
+		</header>
+
+		<div class="dialog__body">
+			<slot>
+				{@html content}
+			</slot>
+		</div>
+
+		<GroupButton {footers} {isVerticalLayout}>
+			{#if !footers}
+				<slot name="footer">
+					<Button on:click={closeModal} variant="outline">Confirm</Button>
+				</slot>
+			{/if}
+		</GroupButton>
+	</article>
+</div>
+
+<style lang="scss">
+	.dialog {
+		--padding-block: 24px;
+
+		display: flex;
+		position: fixed;
+		z-index: 1000;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		visibility: hidden;
+
+		&--toast {
+			margin-top: env(safe-area-inset-top);
+		}
+
+		&.is-open {
+			visibility: visible;
+			animation: fadeIn 0.5s ease-out forwards;
+		}
+
+		&__backdrop {
+			position: fixed;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.4);
+		}
+
+		&__container {
+			overflow: auto;
+			box-sizing: border-box;
+			position: relative;
+			width: min(calc((100% - 6px) - 2em), var(--width));
+			max-height: calc((100% - 6px) - 2em);
+			margin: auto;
+			border-radius: 28px;
+			background: var(--background);
+
+			:not(.is-fullscreen) & {
+				padding: var(--padding-block) 20px;
+			}
+
+			.is-centered & {
+				text-align: center;
+			}
+
+			.is-open & {
+				animation: blowUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+			}
+
+			.dialog--toast & {
+				align-self: flex-end;
+				width: 100%;
+				margin-bottom: 0;
+				padding-bottom: env(safe-area-inset-bottom);
+				border-end-end-radius: 0;
+				border-end-start-radius: 0;
+			}
+
+			.dialog--toast:not(.is-fullscreen) & {
+				padding-bottom: calc(var(--padding-block) + env(safe-area-inset-bottom));
+			}
+
+			.is-open.dialog--toast & {
+				animation-name: toast;
+			}
+		}
+
+		&__icon {
+			display: block;
+			margin: 0 0 16px;
+		}
+
+		&__title {
+			margin: 0 0 8px;
+			font-weight: 700;
+			font-size: 20px;
+			line-height: 1.4;
+			color: var(--walk__black);
+
+			&:empty {
+				display: none;
+			}
+		}
+
+		&__close {
+			--size: 32px;
+			all: unset;
+			cursor: pointer;
+			flex: 0 0 auto;
+			position: relative;
+			width: var(--size);
+			height: var(--size);
+			margin: -10px -6px 0 0;
+			padding: 2.67px;
+			box-sizing: border-box;
+			float: right;
+			vertical-align: middle;
+
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				width: 2.5px;
+				height: 14px;
+				margin: auto;
+				background: var(--walk__black--600);
+				border-radius: 4px;
+			}
+
+			&::before {
+				transform: rotate(45deg);
+			}
+
+			&::after {
+				transform: rotate(-45deg);
+			}
+
+			+ * {
+				clear: both;
+			}
+		}
+
+		&__close-inner {
+			display: block;
+			height: 100%;
+			background: var(--walk__black--200);
+			border-radius: 100%;
+			color: transparent;
+			font-size: 0.1em;
+		}
+
+		&__body {
+			font-weight: 400;
+			font-size: 13px;
+			line-height: 1.5;
+			color: var(--walk__black--700);
+		}
+
+		:global(.group-button:not(:empty)) {
+			margin-top: 24px;
+		}
+	}
+
+	@keyframes blowUp {
+		from {
+			transform: scale(0);
+		}
+		to {
+			transform: scale(1);
+		}
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes toast {
+		from {
+			transform: translateY(100%);
+		}
+		to {
+			transform: translateY(0);
+		}
+	}
+</style>
