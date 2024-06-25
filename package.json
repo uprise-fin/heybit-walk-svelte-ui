@@ -2,6 +2,7 @@
 	"name": "heybit-walk-svelte-ui",
 	"version": "0.0.8-beta",
 	"scripts": {
+		"svg": "node svg/assetsToJs.js",
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
 		"preview": "vite preview",
@@ -14,8 +15,8 @@
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
 		"test:unit": "vitest",
-		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"storybook": "pnpm svg && storybook dev -p 6006",
+		"build-storybook": "pnpm svg && storybook build"
 	},
 	"engines": {
 		"node": ">=18"
