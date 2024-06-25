@@ -51,6 +51,14 @@ const meta = {
 			table: {
 				disable: true
 			}
+		},
+		icon: {
+			description: 'IconSource type',
+			table: {
+				type: {
+					summary: '{ src: string, width: number, height: number }'
+				}
+			}
 		}
 	}
 } satisfies Meta<Button>;

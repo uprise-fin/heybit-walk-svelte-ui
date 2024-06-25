@@ -9,7 +9,13 @@
 
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import { Loader, type HTMLAttributeAnchorTarget, type Size, type Theme } from '.';
+	import {
+		Loader,
+		type HTMLAttributeAnchorTarget,
+		type IconSource,
+		type Size,
+		type Theme
+	} from '.';
 
 	export let duration = 0;
 	export let shape: WalkButtonShape = 'rounded';
@@ -20,6 +26,7 @@
 	export let href: string | undefined = undefined;
 	export let target: HTMLAttributeAnchorTarget | undefined = undefined;
 	export let rel: string | undefined = target === '_blank' ? 'noreferrer noopener' : undefined;
+	export let icon: IconSource | undefined = undefined;
 
 	const el = href ? 'a' : 'button';
 
@@ -56,7 +63,14 @@
 	{#if loading}
 		<Loader color={_color} />
 	{/if}
-	<slot>{label}</slot>
+	{#if icon}
+		<i class="button__icon">
+			<img src={icon.src} alt="" width={icon.width} height={icon.height} />
+		</i>
+	{/if}
+	<slot>
+		{label}
+	</slot>
 </svelte:element>
 
 <style lang="scss">
@@ -171,6 +185,10 @@
 
 		&--text {
 			@include button(#fff, var(--walk__black--50), var(--walk__black--100));
+		}
+
+		&__icon {
+			flex: 0 0 auto;
 		}
 
 		:global(.loader) {

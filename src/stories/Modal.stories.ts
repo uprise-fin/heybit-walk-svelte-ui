@@ -49,9 +49,10 @@ const meta = {
 			}
 		},
 		icon: {
+			description: 'IconSource type',
 			table: {
 				type: {
-					summary: '{ src: string, width: string, height: string }'
+					summary: '{ src: string, width: number, height: number }'
 				}
 			}
 		}

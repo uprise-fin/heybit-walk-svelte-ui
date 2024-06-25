@@ -18,7 +18,8 @@ export type ButtonOption = {
 	href: string;
 	target: HTMLAttributeAnchorTarget;
 	rel: string;
+	icon: IconSource;
 	handler: () => void;
 };
 
-export type IconSource = { src: string; width: string; height: string };
+export type IconSource = { src: string; width: number; height: number };
