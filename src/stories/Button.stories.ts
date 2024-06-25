@@ -6,7 +6,7 @@ import Buttons from './Buttons.svelte';
 
 // More on how to set up stories at: https://storybook.js.org/docs/svelte/writing-stories/introduction
 const meta = {
-	title: 'Component/Buttons',
+	title: 'Component/Button',
 	component: Button,
 	tags: ['autodocs'],
 	argTypes: {
@@ -38,11 +38,9 @@ const meta = {
 			options: walkButtonThemes
 		},
 		href: {
-			description: 'native 속성입니다. a 요소로 렌더링합니다.',
 			table: {
-				type: { summary: 'string' }
-			},
-			control: 'text'
+				disable: true
+			}
 		},
 		target: {
 			table: {
