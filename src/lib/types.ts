@@ -11,12 +11,14 @@ export const layout = ['centered', 'fullscreen', 'padded'] as const;
 export type Layout = (typeof layout)[number];
 
 export type ButtonOption = {
-  theme: Theme;
-  label: string;
-  disabled: boolean;
-  loading: boolean;
-  href: string;
-  target: HTMLAttributeAnchorTarget;
-  rel: string;
-  handler: () => void;
+	theme: Theme;
+	label: string;
+	disabled: boolean;
+	loading: boolean;
+	href: string;
+	target: HTMLAttributeAnchorTarget;
+	rel: string;
+	handler: () => void;
 };
+
+export type IconSource = { src: string; width: string; height: string };

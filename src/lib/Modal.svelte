@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import { Button, GroupButton, type ButtonOption, type Layout } from '.';
+	import { Button, GroupButton, type ButtonOption, type IconSource, type Layout } from '.';
 
 	export let open = false;
 	export let width = '310px';
@@ -14,7 +14,7 @@
 	export let footers: Partial<ButtonOption>[] | undefined =
 		layout === 'fullscreen' ? [] : undefined;
 	export let background = '#fff';
-	export let icon = '';
+	export let icon: IconSource | undefined = undefined;
 
 	const dispatch = createEventDispatcher<{ close: undefined }>();
 
@@ -51,7 +51,7 @@
 			<slot name="icon">
 				{#if icon}
 					<i class="dialog__icon">
-						<img src={icon} alt="" />
+						<img src={icon.src} alt="" width={icon.width} height={icon.height} />
 					</i>
 				{/if}
 			</slot>
