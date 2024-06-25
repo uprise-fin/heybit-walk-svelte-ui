@@ -31,7 +31,6 @@ const meta = {
 		},
 		layout: {
 			table: {
-				disable: true,
 				type: {
 					summary: layout.join(' | ')
 				}

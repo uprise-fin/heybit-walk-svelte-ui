@@ -32,6 +32,7 @@
 
 <div
 	class="dialog"
+	class:is-padded={layout === 'padded'}
 	class:is-centered={layout === 'centered'}
 	class:is-fullscreen={layout === 'fullscreen'}
 	class:is-open={open}
@@ -126,7 +127,7 @@
 			border-radius: 28px;
 			background: var(--background);
 
-			.is-centered & {
+			:not(.is-padded) & {
 				text-align: center;
 			}
 
