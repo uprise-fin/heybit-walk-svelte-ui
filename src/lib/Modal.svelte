@@ -14,7 +14,7 @@
 	export let footers: Partial<ButtonOption>[] | undefined = undefined;
 	export let background = layout === 'fullscreen' ? 'transparent' : '#fff';
 
-	export let icon: IconSource | undefined = undefined;
+	export let icon: Partial<IconSource> | undefined = undefined;
 
 	const dispatch = createEventDispatcher<{ close: undefined }>();
 
@@ -45,13 +45,12 @@
 					<span class="dialog__close-inner">close</span>
 				</button>
 			{/if}
-			<slot name="icon">
-				{#if icon}
-					<i class="dialog__icon">
-						<img src={icon.src} alt="" width={icon.width} height={icon.height} />
-					</i>
-				{/if}
-			</slot>
+			<slot name="icon"></slot>
+			{#if icon}
+				<i class="dialog__icon">
+					<img src={icon.src} alt="" width={icon.width} height={icon.height} />
+				</i>
+			{/if}
 			<h1 class="dialog__title">{@html title}</h1>
 		</header>
 
@@ -171,7 +170,6 @@
 			--size: 32px;
 			all: unset;
 			cursor: pointer;
-			flex: 0 0 auto;
 			position: relative;
 			width: var(--size);
 			height: var(--size);
@@ -204,7 +202,7 @@
 				transform: rotate(-45deg);
 			}
 
-			+ * {
+			+ :global(*) {
 				clear: both;
 			}
 
