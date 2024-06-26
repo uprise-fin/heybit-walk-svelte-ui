@@ -59,6 +59,12 @@ const meta = {
 					summary: '{ src: string, width: number, height: number }'
 				}
 			}
+		},
+		color: {
+			table: {
+				type: { summary: 'string' }
+			},
+			control: 'color'
 		}
 	}
 } satisfies Meta<Button>;

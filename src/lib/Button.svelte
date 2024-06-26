@@ -27,6 +27,7 @@
 	export let target: HTMLAttributeAnchorTarget | undefined = undefined;
 	export let rel: string | undefined = target === '_blank' ? 'noreferrer noopener' : undefined;
 	export let icon: IconSource | undefined = undefined;
+	export let color: string | undefined = undefined;
 
 	const el = href ? 'a' : 'button';
 
@@ -45,7 +46,7 @@
 	};
 
 	$: _isDarkTheme = ['primary'].includes(theme);
-	$: _color = _isDarkTheme ? '#fff' : 'var(--walk__black)';
+	$: _color = color || (_isDarkTheme ? '#fff' : 'var(--walk__black)');
 </script>
 
 <svelte:element
@@ -56,7 +57,7 @@
 	{rel}
 	class={['button', `button--${size}`, `button--${theme}`, `button--${shape}`].join(' ')}
 	class:is-loading={loading}
-	style={`--color: ${_color}; --transition-duration: ${TRANSITION_DURATION}ms;`}
+	style={`--color: ${_color}; --border-color: ${color || '--walk__black--300'}; --transition-duration: ${TRANSITION_DURATION}ms;`}
 	on:click={handleClick}
 	role="presentation"
 >
@@ -175,7 +176,7 @@
 		&--secondary {
 			@include button(#fff, var(--walk__black--50), var(--walk__black--200));
 			&:not(:disabled) {
-				border: 1px solid var(--walk__black--300);
+				border: 1px solid var(--border-color);
 			}
 		}
 
