@@ -46,7 +46,7 @@
 				</button>
 			{/if}
 			<slot name="icon"></slot>
-			{#if icon}
+			{#if icon?.src}
 				<i class="dialog__icon">
 					<img src={icon.src} alt="" width={icon.width} height={icon.height} />
 				</i>
