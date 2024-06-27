@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, sizes, themes as walkButtonThemes } from '$lib';
+	import { Button, sizes, themes as walkButtonThemes, type IconSource } from '$lib';
 </script>
 
 <article class="article">
