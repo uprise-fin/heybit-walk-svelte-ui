@@ -28,6 +28,7 @@
 	export let rel: string | undefined = target === '_blank' ? 'noreferrer noopener' : undefined;
 	export let icon: IconSource | undefined = undefined;
 	export let color: string | undefined = undefined;
+	export let handler: () => Promise<void>;
 
 	const el = href ? 'a' : 'button';
 
@@ -37,12 +38,20 @@
 
 	const handleClick = async (e: Event) => {
 		if (loading) return;
-		if (duration) {
-			loading = true;
-			await wait(duration);
-			loading = false;
-		}
+
+		loading = true;
+		console.log(1);
 		dispatcher('click', e);
+		// await handler();
+		console.log(2);
+		loading = false;
+		// if (loading) return;
+		// if (duration) {
+		// 	loading = true;
+		// 	await wait(duration);
+		// 	loading = false;
+		// }
+		// dispatcher('click', e);
 	};
 
 	$: _isDarkTheme = ['primary'].includes(theme);
@@ -58,8 +67,8 @@
 	class={['button', `button--${size}`, `button--${theme}`, `button--${shape}`].join(' ')}
 	class:is-loading={loading}
 	style={`--color: ${_color}; --border-color: ${color || '--walk__black--300'}; --transition-duration: ${TRANSITION_DURATION}ms;`}
-	on:click={handleClick}
 	role="presentation"
+	on:click={handleClick}
 >
 	{#if loading}
 		<Loader color={_color} />

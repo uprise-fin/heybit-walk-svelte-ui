@@ -1,8 +1,22 @@
 <script lang="ts">
-	import { Button, sizes, themes as walkButtonThemes, type IconSource } from '$lib';
+	import { Button, sizes, themes as walkButtonThemes } from '$lib';
+
+	const testPromise = () => {
+		return new Promise((resolveOuter) => {
+			console.log('promise');
+			setTimeout(resolveOuter, 1000);
+		});
+	};
+
+	const testFn = async () => {
+		// console.log('fn');
+		await testPromise();
+	};
 </script>
 
 <article class="article">
+	<Button on:click={() => testFn()}>Click</Button>
+
 	<section class="section">
 		<h2 class="section__title">theme</h2>
 		{#each walkButtonThemes as theme}
