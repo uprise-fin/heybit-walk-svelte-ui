@@ -8,6 +8,14 @@ const meta = {
 	title: 'Assets/Icons',
 	component: Icon,
 	tags: ['autodocs'],
+	parameters: {
+		docs: {
+			description: {
+				component:
+					'아이콘 테두리의 여백 포함 유무에 따라 ic 또는 img로 분류합니다. img로 분류되더라도 특성상 여백이 포함될 수 있습니다.'
+			}
+		}
+	},
 	argTypes: {
 		size: {
 			table: {
