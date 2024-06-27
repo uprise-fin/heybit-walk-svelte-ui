@@ -1,6 +1,6 @@
+import { Icon, svgs, type IconName } from '$lib';
 import type { Meta, StoryObj } from '@storybook/svelte';
 import Icons from './Icons.svelte';
-import { Icon, svgs, type IconName } from '$lib';
 
 // More on how to set up stories at: https://storybook.js.org/docs/svelte/writing-stories/introduction
 const iconSource = Object.keys(svgs);
@@ -22,7 +22,6 @@ const meta = {
 			control: { type: 'color' }
 		},
 		src: {
-			description: 'ic/{타입}/{이름} 형식으로 입력합니다.',
 			table: {
 				type: { summary: 'string' }
 			},
@@ -41,14 +40,29 @@ export const Basic: Story = {
 	}
 };
 
-export const outline = {
+export const img_fill = {
 	parameters: {
 		docs: {
 			source: {
 				code: null
 			}
-		},
-		layout: 'fullscreen'
+		}
+	},
+	render: () => ({
+		Component: Icons,
+		props: {
+			list: Object.keys(svgs).filter((src) => src.startsWith('img/fill')) as IconName[]
+		}
+	})
+};
+
+export const ic_outline = {
+	parameters: {
+		docs: {
+			source: {
+				code: null
+			}
+		}
 	},
 	render: () => ({
 		Component: Icons,
