@@ -1,6 +1,10 @@
 import '../src/lib/styles/index.scss';
 
-/** @type { import('@storybook/svelte').Preview } */
+declare const __VERSION__: string;
+
+const version = __VERSION__;
+console.log(`%cVersion: v${version}`, 'color: lightgreen;');
+
 const preview = {
 	parameters: {
 		controls: {
