@@ -138,33 +138,33 @@
 		}
 
 		&--x-small {
-			height: 41px;
+			height: 36px;
 			padding-inline: 12px;
 			font-size: 13px;
 		}
 
 		&--small {
-			height: 50px;
+			height: 48px;
 			padding-inline: 20px;
 			font-size: 15px;
 		}
 
 		&--medium {
-			height: 59px;
+			height: 52px;
 			padding-inline: 24px;
 			font-size: 16px;
 		}
 
 		&--large {
 			gap: 8px;
-			height: 68px;
+			height: 60px;
 			padding-inline: 28px;
 			font-size: 20px;
 		}
 
 		&--x-large {
 			gap: 8px;
-			height: 78px;
+			height: 68px;
 			padding-inline: 32px;
 			font-size: 24px;
 		}
