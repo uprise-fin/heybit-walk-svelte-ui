@@ -8,17 +8,14 @@
 		});
 	};
 
-	const handleClick = async (event: CustomEvent<{ resolve: () => void }>) => {
-		console.log('Starting async operation');
+	const testFn = async () => {
+		// console.log('fn');
 		await testPromise();
-		console.log('Async operation complete');
-		event.detail.resolve();
 	};
 </script>
 
-
 <article class="article">
-	<Button on:click={handleClick}>Click</Button>
+	<Button on:click={() => testFn()}>Click</Button>
 
 	<section class="section">
 		<h2 class="section__title">theme</h2>

@@ -28,27 +28,30 @@
 	export let rel: string | undefined = target === '_blank' ? 'noreferrer noopener' : undefined;
 	export let icon: IconSource | undefined = undefined;
 	export let color: string | undefined = undefined;
+	export let handler: () => Promise<void>;
 
 	const el = href ? 'a' : 'button';
 
-	const dispatcher = createEventDispatcher<{ click: CustomEvent<{ resolve: () => void }> }>();
+	const dispatcher = createEventDispatcher<{ click: Event }>();
 
 	const TRANSITION_DURATION = 300;
 
 	const handleClick = async (e: Event) => {
 		if (loading) return;
 
-		console.log('11111');
 		loading = true;
-		const result = new Promise<void>((resolve) => {
-			dispatcher('click', new CustomEvent('click', {
-				detail: { resolve },
-			}));
-		});
-		await result;
-		console.log('22222', e);
+		console.log(1);
+		dispatcher('click', e);
+		// await handler();
+		console.log(2);
 		loading = false;
-		console.log('3333333');
+		// if (loading) return;
+		// if (duration) {
+		// 	loading = true;
+		// 	await wait(duration);
+		// 	loading = false;
+		// }
+		// dispatcher('click', e);
 	};
 
 	$: _isDarkTheme = ['primary'].includes(theme);
