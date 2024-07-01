@@ -19,6 +19,7 @@
   .group-button {
     --gap: 8px;
     display: flex;
+    justify-content: center;
     gap: var(--gap);
 
     :global(.button--text:not(:first-child)) {
