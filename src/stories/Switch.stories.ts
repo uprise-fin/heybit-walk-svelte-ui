@@ -27,6 +27,12 @@ export const checked: Story = {
 	}
 };
 
+export const loading: Story = {
+	args: {
+		loading: true
+	}
+};
+
 export const disabled: Story = {
 	args: {
 		disabled: true
