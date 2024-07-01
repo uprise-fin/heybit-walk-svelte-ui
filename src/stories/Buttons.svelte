@@ -1,8 +1,27 @@
 <script lang="ts">
-	import { Button, sizes, themes as walkButtonThemes, type IconSource } from '$lib';
+	import { Button, sizes, themes as walkButtonThemes, type AsyncCallbackParams } from '$lib';
+
+	const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+	const syncFn = () => {
+		console.log('syncFn');
+	};
+
+	const asyncFn = async ({ detail }: CustomEvent<AsyncCallbackParams>) => {
+		detail.loading = true;
+		try {
+			await delay(1000);
+			console.log('asyncFn');
+		} finally {
+			detail.done(null);
+		}
+	};
 </script>
 
 <article class="article">
+	<Button on:click={asyncFn}>async</Button>
+	<Button on:click={syncFn}>sync</Button>
+
 	<section class="section">
 		<h2 class="section__title">theme</h2>
 		{#each walkButtonThemes as theme}

@@ -2,9 +2,7 @@
 	export const walkButtonShapes = ['rounded'] as const;
 	export type WalkButtonShape = (typeof walkButtonShapes)[number];
 
-	export function wait(time = 500) {
-		return new Promise((resolve) => setTimeout(() => resolve(true), time));
-	}
+	export type AsyncCallbackParams = Event & { done: (value: unknown) => void; loading: boolean };
 </script>
 
 <script lang="ts">
@@ -17,7 +15,6 @@
 		type Theme
 	} from '.';
 
-	export let duration = 0;
 	export let shape: WalkButtonShape = 'rounded';
 	export let size: Size = 'medium';
 	export let theme: Theme = 'primary';
@@ -31,18 +28,27 @@
 
 	const el = href ? 'a' : 'button';
 
-	const dispatcher = createEventDispatcher<{ click: Event }>();
+	const dispatch = createEventDispatcher<{
+		click: AsyncCallbackParams;
+	}>();
 
 	const TRANSITION_DURATION = 300;
 
 	const handleClick = async (e: Event) => {
 		if (loading) return;
-		if (duration) {
-			loading = true;
-			await wait(duration);
+
+		loading = true;
+		try {
+			await new Promise((resolve) => {
+				const detail = { done: resolve, loading: false };
+				const params: AsyncCallbackParams = Object.assign(e, { ...detail });
+
+				dispatch('click', params);
+				!params.loading && resolve(null);
+			});
+		} finally {
 			loading = false;
 		}
-		dispatcher('click', e);
 	};
 
 	$: _isDarkTheme = ['primary'].includes(theme);
@@ -58,8 +64,8 @@
 	class={['button', `button--${size}`, `button--${theme}`, `button--${shape}`].join(' ')}
 	class:is-loading={loading}
 	style={`--color: ${_color}; --border-color: ${color || '--walk__black--300'}; --transition-duration: ${TRANSITION_DURATION}ms;`}
-	on:click={handleClick}
 	role="presentation"
+	on:click={handleClick}
 >
 	{#if loading}
 		<Loader color={_color} />
