@@ -1,21 +1,21 @@
 {
-	"extends": "./.svelte-kit/tsconfig.json",
-	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.svelte"],
-	"exclude": ["node_modules"],
+  "extends": "./.svelte-kit/tsconfig.json",
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.svelte"],
+  "exclude": ["node_modules"],
 
-	"compilerOptions": {
-		"allowJs": true,
-		"checkJs": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"resolveJsonModule": true,
-		"skipLibCheck": true,
-		"sourceMap": true,
-		"strict": true,
-		"target": "es2021",
-		"module": "es2020",
-		"moduleResolution": "node",
-		"noEmit": true,
-		"isolatedModules": true
-	}
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2021",
+    "module": "es2020",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "isolatedModules": true
+  }
 }

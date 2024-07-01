@@ -26,4 +26,4 @@ export type IconName =
   | 'ic/outline/sidemenu'
   | 'ic/outline/swap'
   | 'ic/outline/warning'
-  | 'img/fill/coin'
+  | 'img/fill/coin';

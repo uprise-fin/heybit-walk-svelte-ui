@@ -11,16 +11,16 @@ export const layout = ['centered', 'fullscreen', 'padded'] as const;
 export type Layout = (typeof layout)[number];
 
 export type ButtonOption = {
-	type: 'button' | 'submit' | 'reset';
-	theme: Theme;
-	label: string;
-	disabled: boolean;
-	loading: boolean;
-	href: string;
-	target: HTMLAttributeAnchorTarget;
-	rel: string;
-	icon: IconSource;
-	handler: () => void;
+  type: 'button' | 'submit' | 'reset';
+  theme: Theme;
+  label: string;
+  disabled: boolean;
+  loading: boolean;
+  href: string;
+  target: HTMLAttributeAnchorTarget;
+  rel: string;
+  icon: IconSource;
+  handler: () => void;
 };
 
 export type IconSource = { src: string; width: number; height: number };

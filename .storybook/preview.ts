@@ -6,14 +6,14 @@ const version = __VERSION__;
 console.log(`%cVersion: v${version}`, 'color: lightgreen;');
 
 const preview = {
-	parameters: {
-		controls: {
-			matchers: {
-				color: /(background|color)$/i,
-				date: /Date$/i
-			}
-		}
-	}
+  parameters: {
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/i
+      }
+    }
+  }
 };
 
 export default preview;
