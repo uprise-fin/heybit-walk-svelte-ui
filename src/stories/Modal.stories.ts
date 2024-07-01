@@ -1,6 +1,6 @@
 import { layout } from '$lib';
-import type { Meta, StoryObj } from '@storybook/svelte';
 import Modal from '$lib/Modal.svelte';
+import type { Meta, StoryObj } from '@storybook/svelte';
 
 // More on how to set up stories at: https://storybook.js.org/docs/svelte/writing-stories/introduction
 const meta = {

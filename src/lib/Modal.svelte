@@ -31,52 +31,54 @@
   };
 </script>
 
-<div
-  class={['dialog', `is-${layout}`].join(' ')}
-  class:is-open={open}
-  class:dialog--toast={toast}
-  style={`--width: ${width}; --background: ${background};`}
-  transition:fade
->
-  <span class="dialog__backdrop" aria-hidden="true" on:click={handleClick} />
+{#if open}
+  <div
+    class={['dialog', `is-${layout}`].join(' ')}
+    class:is-open={open}
+    class:dialog--toast={toast}
+    style={`--width: ${width}; --background: ${background};`}
+    transition:fade={{ duration: 100 }}
+  >
+    <span class="dialog__backdrop" aria-hidden="true" on:click={handleClick} />
 
-  <article class="dialog__container">
-    <header class="dialog__header">
-      {#if layout !== 'fullscreen' && availableCloseButton}
-        <button class="dialog__close" on:click={handleClick}>
-          <span class="dialog__close-inner">close</span>
-        </button>
-      {/if}
-      <slot name="icon"></slot>
-      {#if icon?.src}
-        <i class="dialog__icon">
-          <img src={icon.src} alt="" width={icon.width} height={icon.height} />
-        </i>
-      {/if}
-      <h1 class="dialog__title">{@html title}</h1>
-    </header>
+    <article class="dialog__container">
+      <header class="dialog__header">
+        {#if layout !== 'fullscreen' && availableCloseButton}
+          <button class="dialog__close" on:click={handleClick}>
+            <span class="dialog__close-inner">close</span>
+          </button>
+        {/if}
+        <slot name="icon"></slot>
+        {#if icon?.src}
+          <i class="dialog__icon">
+            <img src={icon.src} alt="" width={icon.width} height={icon.height} />
+          </i>
+        {/if}
+        <h1 class="dialog__title">{@html title}</h1>
+      </header>
 
-    <div class="dialog__body">
-      <slot>
-        {@html content}
-      </slot>
-    </div>
-
-    <GroupButton {footers} {isVerticalLayout}>
-      {#if !footers}
-        <slot name="footer">
-          <Button on:click={closeModal} variant="outline">Confirm</Button>
+      <div class="dialog__body">
+        <slot>
+          {@html content}
         </slot>
-      {/if}
-    </GroupButton>
-  </article>
+      </div>
 
-  {#if layout === 'fullscreen' && availableCloseButton}
-    <button class="dialog__close dialog__close--fixed" on:click={handleClick}>
-      <span class="dialog__close-inner">close</span>
-    </button>
-  {/if}
-</div>
+      <GroupButton {footers} {isVerticalLayout}>
+        {#if !footers}
+          <slot name="footer">
+            <Button on:click={closeModal} variant="outline">Confirm</Button>
+          </slot>
+        {/if}
+      </GroupButton>
+    </article>
+
+    {#if layout === 'fullscreen' && availableCloseButton}
+      <button class="dialog__close dialog__close--fixed" on:click={handleClick}>
+        <span class="dialog__close-inner">close</span>
+      </button>
+    {/if}
+  </div>
+{/if}
 
 <style lang="scss">
   .dialog {
@@ -89,15 +91,9 @@
     top: 0;
     right: 0;
     bottom: 0;
-    visibility: hidden;
 
     &--toast {
       margin-top: env(safe-area-inset-top);
-    }
-
-    &.is-open {
-      visibility: visible;
-      animation: fadeIn 0.5s ease-out forwards;
     }
 
     &__backdrop {
@@ -256,15 +252,6 @@
     }
     to {
       transform: scale(1);
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
     }
   }
 
