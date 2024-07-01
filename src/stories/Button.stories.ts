@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/svelte';
 
-import { themes as walkButtonThemes, sizes } from '$lib';
+import { sizes, themes as walkButtonThemes } from '$lib';
 import Button from '$lib/Button.svelte';
 import Buttons from './Buttons.svelte';
 
@@ -19,9 +19,6 @@ const meta = {
 			table: {
 				disable: true
 			}
-		},
-		duration: {
-			description: '전달한 ms만큼 debounce 합니다.'
 		},
 		size: {
 			table: {
