@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import { Button, GroupButton, type ButtonOption, type IconSource, type Layout } from '.';
 
 	export let open = false;
@@ -35,6 +36,7 @@
 	class:is-open={open}
 	class:dialog--toast={toast}
 	style={`--width: ${width}; --background: ${background};`}
+	transition:fade
 >
 	<span class="dialog__backdrop" aria-hidden="true" on:click={handleClick} />
 
