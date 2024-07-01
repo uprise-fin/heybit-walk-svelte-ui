@@ -24,7 +24,7 @@
 	export let target: HTMLAttributeAnchorTarget | undefined = undefined;
 	export let rel: string | undefined = target === '_blank' ? 'noreferrer noopener' : undefined;
 	export let icon: IconSource | undefined = undefined;
-	export let color: string | undefined = undefined;
+	export let color = '';
 
 	const el = href ? 'a' : 'button';
 

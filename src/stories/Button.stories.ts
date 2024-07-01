@@ -59,6 +59,7 @@ const meta = {
 		},
 		color: {
 			table: {
+				disable: true,
 				type: { summary: 'string' }
 			},
 			control: 'color'
