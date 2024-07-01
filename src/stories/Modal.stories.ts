@@ -47,6 +47,14 @@ const meta = {
         defaultValue: { summary: 'true' }
       }
     },
+    background: {
+      table: {
+        type: {
+          summary: 'string'
+        }
+      },
+      control: 'color'
+    },
     icon: {
       description: 'IconSource type',
       table: {
