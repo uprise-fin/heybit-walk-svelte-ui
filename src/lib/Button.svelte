@@ -118,6 +118,10 @@
     &.is-loading {
       cursor: progress;
       color: transparent !important;
+
+      :global(> *:not(.loader)) {
+        visibility: hidden;
+      }
     }
 
     &:disabled:not(.is-loading) {
