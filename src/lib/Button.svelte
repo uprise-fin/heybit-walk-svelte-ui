@@ -51,7 +51,7 @@
   disabled={_disabled}
   class={['button', `button--${size}`, `button--${theme}`, `button--${shape}`].join(' ')}
   class:is-loading={loading}
-  style={`--color: ${_color}; --border-color: ${color || '--walk__black--300'}; --transition-duration: ${TRANSITION_DURATION}ms;`}
+  style={`--color: ${_color}; --border-color: ${color || 'var(--walk__black--300)'}; --transition-duration: ${TRANSITION_DURATION}ms;`}
   role="presentation"
   on:click={handleClick}
 >
@@ -113,6 +113,7 @@
 
     &:disabled:not(.is-loading) {
       color: var(--walk__black--400);
+      border: 0;
 
       &:not(.button--text) {
         background: var(--walk__black--100);
@@ -173,9 +174,7 @@
 
     &--secondary {
       @include button(#fff, var(--walk__black--50), var(--walk__black--200));
-      &:not(:disabled) {
-        border: 1px solid var(--border-color);
-      }
+      border: 1px solid var(--border-color);
     }
 
     &--tertiary {
