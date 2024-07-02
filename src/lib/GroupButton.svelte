@@ -5,7 +5,7 @@
   export let footers: Partial<ButtonOption>[] | undefined = undefined;
 </script>
 
-<div class="group-button" class:group-button--vertical={isVerticalLayout}>
+<div class="group-button" class:is-vertical={isVerticalLayout}>
   {#if !footers}
     <slot />
   {:else}
@@ -19,6 +19,7 @@
   .group-button {
     --gap: 8px;
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
     gap: var(--gap);
 
@@ -26,12 +27,14 @@
       margin-top: calc(-1 * var(--gap));
     }
 
-    &:not(.group-button--vertical) :global(.button) {
+    &:not(.is-vertical) :global(.button) {
       flex: 1 1 0;
     }
 
-    &--vertical {
-      flex-flow: column;
+    &.is-vertical {
+      :global(.button) {
+        width: 100%;
+      }
     }
   }
 </style>
