@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button, sizes, themes as walkButtonThemes } from '$lib';
+  import { Button, Icon, sizes, themes as walkButtonThemes } from '$lib';
 </script>
 
 <article class="article">
@@ -22,6 +22,15 @@
     {#each walkButtonThemes as theme}
       <Button {theme} loading>{theme}</Button>
     {/each}
+  </section>
+
+  <section class="section">
+    <h2 class="section__title">with icon</h2>
+    <Button>
+      <Icon src="img/fill/coin" color="#fff" />
+      Button
+      <Icon src="ic/outline/arrow-forward" color="#fff" />
+    </Button>
   </section>
 
   <section class="section">
