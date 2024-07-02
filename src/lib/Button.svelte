@@ -1,8 +1,6 @@
 <script lang="ts" context="module">
   export const walkButtonShapes = ['rounded'] as const;
   export type WalkButtonShape = (typeof walkButtonShapes)[number];
-
-  export type AsyncCallbackParams = Event & { done: (value: unknown) => void; loading: boolean };
 </script>
 
 <script lang="ts">
@@ -30,24 +28,13 @@
   const el = href ? 'a' : 'button';
 
   const dispatch = createEventDispatcher<{
-    click: AsyncCallbackParams;
+    click: Event;
   }>();
 
   const TRANSITION_DURATION = 300;
 
   const handleClick = async (e: Event) => {
-    loading = true;
-    try {
-      await new Promise((resolve) => {
-        const detail = { done: resolve, loading: false };
-        const params: AsyncCallbackParams = Object.assign(e, { ...detail });
-
-        dispatch('click', params);
-        !params.loading && resolve(null);
-      });
-    } finally {
-      loading = false;
-    }
+    dispatch('click', e);
   };
 
   $: _isDarkTheme = ['primary'].includes(theme);
