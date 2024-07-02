@@ -20,6 +20,7 @@
   export let theme: Theme = 'primary';
   export let label = '';
   export let loading = false;
+  export let disabled = false;
   export let href: string | undefined = undefined;
   export let target: HTMLAttributeAnchorTarget | undefined = undefined;
   export let rel: string | undefined = target === '_blank' ? 'noreferrer noopener' : undefined;
@@ -35,8 +36,6 @@
   const TRANSITION_DURATION = 300;
 
   const handleClick = async (e: Event) => {
-    if (loading) return;
-
     loading = true;
     try {
       await new Promise((resolve) => {
@@ -53,6 +52,7 @@
 
   $: _isDarkTheme = ['primary'].includes(theme);
   $: _color = color || (_isDarkTheme ? '#fff' : 'var(--walk__black)');
+  $: _disabled = disabled || loading;
 </script>
 
 <svelte:element
@@ -61,6 +61,7 @@
   {href}
   {target}
   {rel}
+  disabled={_disabled}
   class={['button', `button--${size}`, `button--${theme}`, `button--${shape}`].join(' ')}
   class:is-loading={loading}
   style={`--color: ${_color}; --border-color: ${color || '--walk__black--300'}; --transition-duration: ${TRANSITION_DURATION}ms;`}
@@ -119,7 +120,7 @@
       color: transparent !important;
     }
 
-    &:disabled {
+    &:disabled:not(.is-loading) {
       color: var(--walk__black--400);
 
       &:not(.button--text) {
