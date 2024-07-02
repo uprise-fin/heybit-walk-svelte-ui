@@ -76,7 +76,7 @@
       background: $hover;
     }
 
-    &:focus {
+    &:active {
       background: $press;
     }
   }
