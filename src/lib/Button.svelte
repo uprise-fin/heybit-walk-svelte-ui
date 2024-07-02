@@ -72,11 +72,11 @@
   @mixin button($color, $hover: $color, $press: $color) {
     background: $color;
 
-    &:hover:not(:disabled) {
+    &:hover {
       background: $hover;
     }
 
-    &:focus:not(:focus-visible) {
+    &:focus {
       background: $press;
     }
   }
@@ -114,13 +114,10 @@
     &:disabled:not(.is-loading) {
       color: var(--walk__black--400);
       border: 0;
+      pointer-events: none;
 
       &:not(.button--text) {
         background: var(--walk__black--100);
-      }
-
-      &:not(.is-loading) {
-        cursor: not-allowed;
       }
     }
 
