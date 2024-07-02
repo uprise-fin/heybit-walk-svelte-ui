@@ -5,7 +5,7 @@ import Icons from './Icons.svelte';
 // More on how to set up stories at: https://storybook.js.org/docs/svelte/writing-stories/introduction
 const iconSource = Object.keys(svgs);
 const meta = {
-  title: 'Assets/Icons',
+  title: 'Assets/Icon',
   component: Icon,
   tags: ['autodocs'],
   parameters: {
