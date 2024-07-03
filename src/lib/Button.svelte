@@ -111,10 +111,13 @@
       }
     }
 
-    &:disabled:not(.is-loading) {
+    &[disabled]:not(.is-loading) {
       color: var(--walk__black--400);
       border: 0;
-      pointer-events: none;
+
+      &:not(a) {
+        pointer-events: none;
+      }
 
       &:not(.button--text) {
         background: var(--walk__black--100);
