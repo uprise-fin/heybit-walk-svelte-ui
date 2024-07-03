@@ -111,7 +111,8 @@
       }
     }
 
-    &[disabled]:not(.is-loading) {
+    &:disabled:not(.is-loading),
+    &[disabled='true']:not(.is-loading) {
       color: var(--walk__black--400);
       border: 0;
 
