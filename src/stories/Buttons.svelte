@@ -15,6 +15,7 @@
     {#each walkButtonThemes as theme}
       <Button {theme} disabled>{theme}</Button>
     {/each}
+    <Button href="/" disabled>Link</Button>
   </section>
 
   <section class="section">
