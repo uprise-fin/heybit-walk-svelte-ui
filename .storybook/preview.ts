@@ -1,4 +1,5 @@
 import '../src/lib/styles/index.scss';
+import './style.css';
 
 declare const __VERSION__: string;
 
