@@ -1,6 +1,7 @@
 import { Icon, sizes, svgs, type IconName } from '$lib';
 import type { Meta, StoryObj } from '@storybook/svelte';
 import Icons from './Icons.svelte';
+import Size from './Size.svelte';
 
 // More on how to set up stories at: https://storybook.js.org/docs/svelte/writing-stories/introduction
 const iconSource = Object.keys(svgs);
@@ -45,6 +46,19 @@ export const Basic: Story = {
   args: {
     src: 'ic/outline/arrow-right'
   }
+};
+
+export const size = {
+  parameters: {
+    docs: {
+      source: {
+        code: null
+      }
+    }
+  },
+  render: () => ({
+    Component: Size
+  })
 };
 
 export const img_fill = {
