@@ -1,6 +1,6 @@
 import { TextField } from '$lib';
 import type { Meta, StoryObj } from '@storybook/svelte';
-import TextFieldSlot from './TextFieldSlot.svelte';
+import Slot from './Slot.svelte';
 
 const meta = {
   title: 'Component/TextField',
@@ -69,6 +69,6 @@ export const withSlot = {
     }
   },
   render: () => ({
-    Component: TextFieldSlot
+    Component: Slot
   })
 };
