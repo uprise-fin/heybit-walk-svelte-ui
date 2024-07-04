@@ -62,6 +62,11 @@ const meta = {
           summary: '{ src: string, width: number, height: number }'
         }
       }
+    },
+    class: {
+      table: {
+        disable: true
+      }
     }
   },
   parameters: {
@@ -69,7 +74,8 @@ const meta = {
       story: {
         height: '400px'
       }
-    }
+    },
+    layout: 'fullscreen'
   }
 } satisfies Meta<Modal>;
 
