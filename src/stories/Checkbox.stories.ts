@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/svelte';
 
-import Checkbox from '$lib/form/Checkbox.svelte';
+import Checkbox from '$lib/input/Checkbox.svelte';
 
 const meta = {
-  title: 'Component/Checkbox',
+  title: 'Component/Input/Checkbox',
   component: Checkbox,
   tags: ['autodocs'],
   argTypes: {

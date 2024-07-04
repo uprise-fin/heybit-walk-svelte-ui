@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import { Icon } from '.';
+  import { Icon } from '..';
 
   export let id = '';
   export let disabled = false;

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/svelte';
 import Slot from './Slot.svelte';
 
 const meta = {
-  title: 'Component/TextField',
+  title: 'Component/Input/TextField',
   component: TextField,
   tags: ['autodocs'],
   argTypes: {

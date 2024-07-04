@@ -16,11 +16,11 @@ function write(...folder) {
 }
 write();
 
-fs.writeFile('src/lib/Icon/svgs.ts', 'export const svgs = ' + JSON.stringify(svgs) + ';', () => {
+fs.writeFile('src/lib/icon/svgs.ts', 'export const svgs = ' + JSON.stringify(svgs) + ';', () => {
   console.log('Complete conversion of svg file to text');
 });
 fs.writeFile(
-  'src/lib/Icon/types.ts',
+  'src/lib/icon/types.ts',
   `export type IconName =${iconName
     .map((x, i) => `${i === 0 ? '\n' : ''}  | '${x}'`)
     .join('\n')}\n`,

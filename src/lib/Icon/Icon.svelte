@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Size } from '..';
   import { svgs, type IconName } from '.';
+  import type { Size } from '..';
 
   export let src: IconName;
   export let color = 'var(--walk__black)';
