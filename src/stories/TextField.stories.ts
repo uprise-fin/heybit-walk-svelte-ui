@@ -1,5 +1,6 @@
 import { TextField } from '$lib';
 import type { Meta, StoryObj } from '@storybook/svelte';
+import TextFieldSlot from './TextFieldSlot.svelte';
 
 const meta = {
   title: 'Component/TextField',
@@ -52,4 +53,17 @@ export const Error: Story = {
     label: '라벨',
     errorMessages: ['에러 힌트']
   }
+};
+
+export const withSlot = {
+  parameters: {
+    docs: {
+      source: {
+        code: null
+      }
+    }
+  },
+  render: () => ({
+    Component: TextFieldSlot
+  })
 };
