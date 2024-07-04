@@ -14,8 +14,10 @@
   export let showCloseButton = true;
   export let footers: Partial<ButtonOption>[] | undefined = undefined;
   export let background = layout === 'fullscreen' ? 'transparent' : '#fff';
-
   export let icon: Partial<IconSource> | undefined = undefined;
+  export { additionalClass as class };
+
+  let additionalClass = '';
 
   const dispatch = createEventDispatcher<{ close: undefined }>();
 
@@ -33,7 +35,7 @@
 
 {#if open}
   <div
-    class={['dialog', `is-${layout}`].join(' ')}
+    class={['dialog', `is-${layout}`, additionalClass].join(' ')}
     class:is-open={open}
     class:dialog--toast={toast}
     style={`--width: ${width}; --background: ${background};`}
