@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
+  import { Icon } from '.';
 
   export let id = '';
   export let disabled = false;
@@ -9,6 +10,7 @@
   export let label = '';
   export let clearable = true;
   export let descriptions: string[] = [];
+  export let required = false;
 
   const dispatcher = createEventDispatcher<{
     input: Event & {
@@ -35,6 +37,11 @@
   {#if label}
     <label class="input-wrap__label" class:input-wrap__label--error={hasError} for={_id}>
       {label}
+      {#if required}
+        <em class="input-wrap__required">
+          <Icon src="img/fill/important" color="var(--walk__warning--600)" />
+        </em>
+      {/if}
     </label>
   {/if}
   <div class="input" class:input--error={hasError} class:input--disabled={disabled || readonly}>
@@ -47,6 +54,7 @@
         id={_id}
         {disabled}
         {readonly}
+        {required}
         on:input={(event) => dispatcher('input', event)}
         on:focus
         on:blur
@@ -75,11 +83,21 @@
     color: var(--color);
 
     &__label {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 4px;
       margin: 0 0 4px;
       font-weight: 400;
       font-size: 14px;
       line-height: 1.5;
+    }
+
+    &__required {
+      display: contents;
+
+      :global(.icon) {
+        width: 6px;
+      }
     }
   }
 

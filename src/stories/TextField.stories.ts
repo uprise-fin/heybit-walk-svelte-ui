@@ -30,7 +30,8 @@ export const Basic: Story = {
     disabled: false,
     placeholder: '플레이스 홀더',
     value: '입력한 정보',
-    descriptions: ['설명글']
+    descriptions: ['설명글'],
+    required: true
   }
 };
 
