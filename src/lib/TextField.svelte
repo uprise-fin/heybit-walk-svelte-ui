@@ -223,13 +223,12 @@
       padding: 0 0 0 14px;
 
       &::before {
-        --size: 3px;
         content: '';
         position: absolute;
-        left: 2.5px;
-        top: 8.5px;
-        width: var(--size);
-        height: var(--size);
+        left: 4px;
+        top: 7px;
+        width: 3px;
+        aspect-ratio: 1;
         border-radius: 100%;
         background: var(--color);
       }
