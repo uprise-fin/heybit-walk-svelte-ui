@@ -69,7 +69,7 @@
 </svelte:element>
 
 <style lang="scss">
-  @mixin button($color, $hover: $color, $press: $color) {
+  @mixin button($color, $hover: $color, $press: $color, $disabled: var(--walk__black--100)) {
     background: $color;
 
     &:hover {
@@ -78,6 +78,11 @@
 
     &:active {
       background: $press;
+    }
+
+    &:disabled:not(.is-loading),
+    &[disabled='true']:not(.is-loading) {
+      background: $disabled;
     }
   }
 
@@ -118,10 +123,6 @@
 
       &:not(a) {
         pointer-events: none;
-      }
-
-      &:not(.button--text) {
-        background: var(--walk__black--100);
       }
     }
 
@@ -179,11 +180,11 @@
     }
 
     &--tertiary {
-      @include button(var(--walk__black--200), var(--walk__black--50), var(--walk__black--200));
+      @include button(#fff, var(--walk__black--50), var(--walk__black--100), #fff);
     }
 
     &--text {
-      @include button(#fff, var(--walk__black--50), var(--walk__black--100));
+      @include button(transparent, var(--walk__black--50), var(--walk__black--100), transparent);
     }
 
     &__icon {
