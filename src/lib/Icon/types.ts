@@ -1,4 +1,10 @@
 export type IconName =
+  | 'ic/fill/add'
+  | 'ic/fill/cancel'
+  | 'ic/fill/check'
+  | 'ic/fill/error'
+  | 'ic/fill/minus'
+  | 'ic/fill/warning'
   | 'ic/outline/add'
   | 'ic/outline/arrow-back'
   | 'ic/outline/arrow-down-1'

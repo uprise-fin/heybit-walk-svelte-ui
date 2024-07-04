@@ -64,6 +64,22 @@ export const img_fill = {
   })
 };
 
+export const ic_fill = {
+  parameters: {
+    docs: {
+      source: {
+        code: null
+      }
+    }
+  },
+  render: () => ({
+    Component: Icons,
+    props: {
+      list: Object.keys(svgs).filter((src) => src.startsWith('ic/fill')) as IconName[]
+    }
+  })
+};
+
 export const ic_outline = {
   parameters: {
     docs: {
