@@ -187,7 +187,7 @@
         top: 0;
         right: 0;
         bottom: 0;
-        width: 2.5px;
+        width: 2.4px;
         height: 14px;
         margin: auto;
         background: var(--walk__black--600);

@@ -91,7 +91,7 @@ export const basic: Story = {
     footers: [
       {
         label: '聯繫我們',
-        theme: 'tertiary',
+        theme: 'secondary',
         handler: () => alert('Clicked')
       },
       {
