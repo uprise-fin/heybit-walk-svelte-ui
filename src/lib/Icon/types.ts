@@ -3,6 +3,7 @@ export type IconName =
   | 'ic/fill/cancel'
   | 'ic/fill/check'
   | 'ic/fill/error'
+  | 'ic/fill/loading'
   | 'ic/fill/minus'
   | 'ic/fill/warning'
   | 'ic/outline/add'
