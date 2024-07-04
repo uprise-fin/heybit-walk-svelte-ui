@@ -1,4 +1,4 @@
-import { Icon, svgs, type IconName } from '$lib';
+import { Icon, sizes, svgs, type IconName } from '$lib';
 import type { Meta, StoryObj } from '@storybook/svelte';
 import Icons from './Icons.svelte';
 
@@ -19,10 +19,9 @@ const meta = {
   argTypes: {
     size: {
       table: {
-        disable: true,
-        type: { summary: 'small 18*18 | medium 24*24 | large 32*32' }
+        type: { summary: sizes.join(' | ') }
       },
-      options: ['small', 'medium', 'large'],
+      options: sizes,
       control: { type: 'select' }
     },
     color: {

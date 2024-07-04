@@ -4,7 +4,7 @@
 
   export let src: IconName;
   export let color = 'var(--walk__black)';
-  export let size: Exclude<Size, 'x-small' | 'x-large'> = 'medium';
+  export let size: Size = 'small';
 </script>
 
 <i class={`icon icon--${size}`} style={`--color: ${color};`}>
@@ -18,16 +18,24 @@
     width: var(--size);
     aspect-ratio: 1;
 
-    &--small {
+    &--x-small {
       --size: 18px;
     }
 
-    &--medium {
+    &--small {
       --size: 24px;
+    }
+
+    &--medium {
+      --size: 26px;
     }
 
     &--large {
       --size: 32px;
+    }
+
+    &--x-large {
+      --size: 44px;
     }
 
     :global(svg) {
