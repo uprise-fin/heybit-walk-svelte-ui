@@ -6,4 +6,5 @@ export { default as Loader } from './Loader.svelte';
 export { default as Modal } from './Modal.svelte';
 export { default as Switch } from './Switch.svelte';
 export { default as TextField } from './TextField.svelte';
+export { default as Checkbox } from './form/Checkbox.svelte';
 export * from './types';
