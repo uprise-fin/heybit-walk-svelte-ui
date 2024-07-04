@@ -23,7 +23,8 @@ export type IconName =
   | 'ic/outline/passwordon'
   | 'ic/outline/qr'
   | 'ic/outline/refresh'
+  | 'ic/outline/send'
   | 'ic/outline/sidemenu'
   | 'ic/outline/swap'
   | 'ic/outline/warning'
-  | 'img/fill/coin';
+  | 'img/fill/coin'
