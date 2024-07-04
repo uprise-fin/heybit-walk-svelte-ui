@@ -24,7 +24,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
+export const basic: Story = {
+  args: {}
+};
+
+export const options: Story = {
   args: {
     label: '라벨',
     disabled: false,
@@ -35,21 +39,21 @@ export const Basic: Story = {
   }
 };
 
-export const Disabled: Story = {
+export const disabled: Story = {
   args: {
     disabled: true,
     value: '입력한 정보'
   }
 };
 
-export const Readonly: Story = {
+export const readonly: Story = {
   args: {
     readonly: true,
     value: '입력한 정보'
   }
 };
 
-export const Error: Story = {
+export const error: Story = {
   args: {
     label: '라벨',
     errorMessages: ['에러 힌트']
