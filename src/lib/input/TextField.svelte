@@ -11,6 +11,7 @@
   export let clearable = true;
   export let descriptions: string[] = [];
   export let required = false;
+  export let height = '48px';
 
   const dispatcher = createEventDispatcher<{
     input: Event & {
@@ -33,7 +34,7 @@
   $: messages = errorMessages?.length ? errorMessages : descriptions;
 </script>
 
-<div class="input-wrap">
+<div class="input-wrap" style={`--height: ${height}`}>
   {#if label}
     <label class="input-wrap__label" class:input-wrap__label--error={hasError} for={_id}>
       {label}
@@ -132,7 +133,7 @@
     &__el {
       box-sizing: border-box;
       width: 100%;
-      height: 48px;
+      height: var(--height);
       padding-block: var(--padding);
       background: none;
       border: 0;

@@ -17,6 +17,9 @@ const meta = {
     },
     clearable: {
       description: '요소 안 우측의 X버튼 노출 여부를 결정합니다.'
+    },
+    height: {
+      description: '단독으로 사용되는 경우 부각시키기 위해 52px로 사용합니다.'
     }
   }
 } satisfies Meta<TextField>;
