@@ -79,6 +79,12 @@
 </div>
 
 <style lang="scss">
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   .input-wrap {
     --color: var(--walk__black);
     color: var(--color);
