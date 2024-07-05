@@ -1,10 +1,11 @@
 export * from './Button.svelte';
 export { default as Button } from './Button.svelte';
 export { default as GroupButton } from './GroupButton.svelte';
+export * from './icon';
+export { default as Checkbox } from './input/Checkbox.svelte';
+export { default as Radio } from './input/Radio.svelte';
+export { default as TextField } from './input/TextField.svelte';
 export { default as Loader } from './Loader.svelte';
 export { default as Modal } from './Modal.svelte';
 export { default as Switch } from './Switch.svelte';
-export * from './icon';
-export { default as Checkbox } from './input/Checkbox.svelte';
-export { default as TextField } from './input/TextField.svelte';
 export * from './types';
