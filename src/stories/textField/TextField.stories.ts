@@ -30,11 +30,10 @@ export const basic: Story = {
 
 export const options: Story = {
   args: {
-    label: '라벨',
+    label: 'label',
     disabled: false,
-    placeholder: '플레이스 홀더',
-    value: '입력한 정보',
-    descriptions: ['설명글'],
+    placeholder: 'placeholder',
+    descriptions: ['descriptions'],
     required: true
   }
 };
@@ -42,21 +41,21 @@ export const options: Story = {
 export const disabled: Story = {
   args: {
     disabled: true,
-    value: '입력한 정보'
+    value: 'value'
   }
 };
 
 export const readonly: Story = {
   args: {
     readonly: true,
-    value: '입력한 정보'
+    value: 'value'
   }
 };
 
 export const error: Story = {
   args: {
-    label: '라벨',
-    errorMessages: ['에러 힌트']
+    label: 'label',
+    errorMessages: ['errorMessages']
   }
 };
 
