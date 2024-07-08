@@ -7,9 +7,6 @@ const meta = {
   component: Checkbox,
   tags: ['autodocs'],
   argTypes: {
-    checked: {
-      control: 'boolean'
-    },
     disabled: {
       control: 'boolean'
     }

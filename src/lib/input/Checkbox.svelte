@@ -1,9 +1,11 @@
 <script lang="ts">
   import { Icon } from '$lib/icon';
+
+  export let checked = false;
 </script>
 
 <span class="checkbox">
-  <input class="checkbox__input" type="checkbox" {...$$restProps} />
+  <input class="checkbox__input" type="checkbox" {...$$restProps} bind:checked on:change />
   <span class="checkbox__bg">
     <Icon src="ic/outline/checkmark" color="#fff" />
   </span>
