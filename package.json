@@ -1,6 +1,6 @@
 {
   "name": "heybit-walk-svelte-ui",
-  "version": "0.0.36-beta",
+  "version": "0.0.37",
   "scripts": {
     "svg": "node svg/assetsToJs.js",
     "dev": "vite dev",
