@@ -183,7 +183,7 @@
       border-radius: 50%;
       background: var(--walk__black--500);
       text-indent: -9999px;
-      font-size: 0.1em;
+      font-size: 0;
 
       &::before,
       &::after {
