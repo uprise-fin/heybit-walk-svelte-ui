@@ -72,13 +72,13 @@
           </slot>
         {/if}
       </GroupButton>
-    </article>
 
-    {#if layout === 'fullscreen' && availableCloseButton}
-      <button class="dialog__close dialog__close--fixed" on:click={handleClick}>
-        <span class="dialog__close-inner">close</span>
-      </button>
-    {/if}
+      {#if layout === 'fullscreen' && availableCloseButton}
+        <button class="dialog__close dialog__close--fullscreen" on:click={handleClick}>
+          <span class="dialog__close-inner">close</span>
+        </button>
+      {/if}
+    </article>
   </div>
 {/if}
 
@@ -112,6 +112,13 @@
       }
     }
 
+    &.is-fullscreen {
+      :global(.group-button.is-vertical) {
+        display: inline-flex;
+        min-width: 120px;
+      }
+    }
+
     &__container {
       overflow: auto;
       box-sizing: border-box;
@@ -135,7 +142,6 @@
         align-self: flex-end;
         width: 100%;
         margin-bottom: 0;
-        padding-bottom: env(safe-area-inset-bottom);
         border-end-end-radius: 0;
         border-end-start-radius: 0;
       }
@@ -206,11 +212,10 @@
         clear: both;
       }
 
-      &--fixed {
-        position: fixed;
-        right: 12px;
-        top: 12px;
-        margin: 0;
+      &--fullscreen {
+        float: none;
+        display: block;
+        margin: 24px auto 0;
 
         &::before,
         &::after {
