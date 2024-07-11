@@ -85,6 +85,10 @@ export const loading: Story = {
 
 export const buttons = {
   parameters: {
+    backgrounds: {
+      default: 'dark',
+      values: [{ name: 'dark', value: '#dee0e2' }]
+    },
     docs: {
       source: {
         code: null
