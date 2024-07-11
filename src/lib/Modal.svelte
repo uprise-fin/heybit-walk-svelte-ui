@@ -248,6 +248,11 @@
       }
     }
 
+    :global(.group-button) {
+      padding: 0;
+      background: none;
+    }
+
     :global(.group-button:not(:empty)) {
       margin-top: 24px;
     }

@@ -105,6 +105,7 @@ export const basic: Story = {
 export const fullscreen = {
   args: {
     ...basic.args,
-    layout: 'fullscreen'
+    layout: 'fullscreen',
+    isVerticalLayout: true
   }
 };
