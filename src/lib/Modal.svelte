@@ -65,7 +65,7 @@
         </slot>
       </div>
 
-      {#if footers}
+      {#if footers?.length}
         <GroupButton {footers} {isVerticalLayout} />
       {/if}
 
