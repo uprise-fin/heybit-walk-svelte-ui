@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';
-  import { Button, GroupButton, type ButtonOption, type IconSource, type Layout } from '.';
+  import { GroupButton, type ButtonOption, type IconSource, type Layout } from '.';
 
   export let open = false;
   export let width = '310px';
@@ -65,13 +65,9 @@
         </slot>
       </div>
 
-      <GroupButton {footers} {isVerticalLayout}>
-        {#if !footers}
-          <slot name="footer">
-            <Button on:click={closeModal} variant="outline">Confirm</Button>
-          </slot>
-        {/if}
-      </GroupButton>
+      {#if footers}
+        <GroupButton {footers} {isVerticalLayout} />
+      {/if}
 
       {#if layout === 'fullscreen' && availableCloseButton}
         <button class="dialog__close dialog__close--fullscreen" on:click={handleClick}>
