@@ -21,6 +21,7 @@
     --gap: 8px;
     padding-block: 20px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+    text-align: center;
 
     &__inner {
       display: flex;
