@@ -8,7 +8,7 @@
 </script>
 
 <label class="switch">
-  <input class="switch__input" type="checkbox" {...$$restProps} disabled={_disabled} />
+  <input class="switch__input" type="checkbox" {...$$restProps} disabled={_disabled} on:change />
   <span class="switch__slider"></span>
   {#if loading}
     <Loader color="var(--walk__primary)" />
