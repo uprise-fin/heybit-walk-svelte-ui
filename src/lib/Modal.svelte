@@ -60,9 +60,8 @@
       </header>
 
       <div class="dialog__body">
-        <slot>
-          {@html content}
-        </slot>
+        {@html content}
+        <slot></slot>
       </div>
 
       {#if footers?.length}
