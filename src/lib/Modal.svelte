@@ -108,7 +108,7 @@
     }
 
     &.is-fullscreen {
-      :global(.group-button.is-vertical) {
+      :global(.group-button__inner.is-vertical) {
         display: inline-flex;
         min-width: 120px;
       }
