@@ -102,6 +102,13 @@ export const basic: Story = {
   }
 };
 
+export const keepDialog = {
+  args: {
+    ...basic.args,
+    keepDialog: true
+  }
+};
+
 export const fullscreen = {
   args: {
     ...basic.args,

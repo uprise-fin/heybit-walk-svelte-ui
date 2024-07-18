@@ -46,7 +46,7 @@
     <article class="dialog__container">
       <header class="dialog__header">
         {#if layout !== 'fullscreen' && availableCloseButton}
-          <button class="dialog__close" on:click={handleClick}>
+          <button class="dialog__close" on:click={closeModal}>
             <span class="dialog__close-inner">close</span>
           </button>
         {/if}
@@ -69,7 +69,7 @@
       {/if}
 
       {#if layout === 'fullscreen' && availableCloseButton}
-        <button class="dialog__close dialog__close--fullscreen" on:click={handleClick}>
+        <button class="dialog__close dialog__close--fullscreen" on:click={closeModal}>
           <span class="dialog__close-inner">close</span>
         </button>
       {/if}
