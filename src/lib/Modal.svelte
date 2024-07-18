@@ -19,6 +19,8 @@
 
   let additionalClass = '';
 
+  let shakeAnimation = false;
+
   const dispatch = createEventDispatcher<{ close: undefined }>();
 
   $: availableCloseButton = !keepDialog && showCloseButton;
@@ -28,15 +30,19 @@
     dispatch('close');
   };
 
+  const unableToClose = () => {
+    shakeAnimation = true;
+  };
+
   const handleClick = () => {
-    !keepDialog && closeModal();
+    keepDialog ? unableToClose() : closeModal();
   };
 </script>
 
 {#if open}
   <div
     class={['dialog', `is-${layout}`, additionalClass].join(' ')}
-    class:is-open={open}
+    class:is-shake={shakeAnimation}
     class:dialog--toast={toast}
     style={`--width: ${width}; --background: ${background};`}
     transition:fade={{ duration: 100 }}
@@ -124,13 +130,10 @@
       padding: var(--padding-block) 20px;
       border-radius: 28px;
       background: var(--background);
+      animation: blowUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 
       :not(.is-padded) & {
         text-align: center;
-      }
-
-      .is-open & {
-        animation: blowUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
       }
 
       .dialog--toast & {
@@ -139,10 +142,11 @@
         margin-bottom: 0;
         border-end-end-radius: 0;
         border-end-start-radius: 0;
+        animation-name: toast;
       }
 
-      .is-open.dialog--toast & {
-        animation-name: toast;
+      .is-shake & {
+        animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
       }
     }
 
@@ -268,6 +272,29 @@
     }
     to {
       transform: translateY(0);
+    }
+  }
+
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+      transform: translate3d(4px, 0, 0);
     }
   }
 </style>
