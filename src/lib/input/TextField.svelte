@@ -113,10 +113,10 @@
     display: flex;
     align-items: center;
     padding-inline: var(--padding);
-    outline: 1px solid var(--walk__black--300);
+    border: 1px solid var(--walk__black--300);
     border-radius: 12px;
     background: #fff;
-    transition: outline 0.1s;
+    transition: border 0.1s;
 
     &:focus-within:not(.input--disabled) {
       outline-color: var(--walk__black);
@@ -127,7 +127,7 @@
     }
 
     &--error {
-      outline: 1px solid var(--walk__warning--500) !important;
+      border: 1px solid var(--walk__warning--500) !important;
     }
 
     &__prefix {
