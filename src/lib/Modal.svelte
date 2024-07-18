@@ -154,7 +154,7 @@
     &__title {
       margin: 0 0 8px;
       font-weight: 700;
-      font-size: 20px;
+      font-size: 22px;
       line-height: 1.4;
       color: var(--walk__black);
 
