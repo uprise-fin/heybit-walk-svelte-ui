@@ -3,9 +3,10 @@
 
   export let isVerticalLayout = false;
   export let footers: Partial<ButtonOption>[] | undefined = undefined;
+  export let background = 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%)';
 </script>
 
-<div class="group-button">
+<div class="group-button" style={`--background: ${background}`}>
   <slot />
   <div class="group-button__inner" class:is-vertical={isVerticalLayout}>
     {#if footers}
@@ -20,7 +21,7 @@
   .group-button {
     --gap: 8px;
     padding-block: 20px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+    background: var(--background);
     text-align: center;
 
     &__inner {
