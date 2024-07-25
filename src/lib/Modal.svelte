@@ -59,7 +59,7 @@
         <slot name="icon"></slot>
         {#if icon?.src}
           <i class="dialog__icon">
-            <img src={icon.src} alt="" width={icon.width} height={icon.height} />
+            <img src={icon.src} alt="" width={icon.width || 120} height={icon.height || 120} />
           </i>
         {/if}
         <h1 class="dialog__title">{@html title}</h1>
