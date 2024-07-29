@@ -1,6 +1,5 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import { fade } from 'svelte/transition';
   import { GroupButton, type ButtonOption, type IconSource, type Layout } from '.';
 
   export let open = false;
@@ -45,7 +44,6 @@
     class:is-shake={shakeAnimation}
     class:dialog--toast={toast}
     style={`--width: ${width}; --background: ${background};`}
-    transition:fade={{ duration: 100 }}
   >
     <span class="dialog__backdrop" aria-hidden="true" on:click={handleClick} />
 
@@ -130,7 +128,6 @@
       padding: var(--padding-block) 20px;
       border-radius: 28px;
       background: var(--background);
-      animation: blowUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 
       :not(.is-padded) & {
         text-align: center;
@@ -142,7 +139,6 @@
         margin-bottom: 0;
         border-end-end-radius: 0;
         border-end-start-radius: 0;
-        animation-name: toast;
       }
 
       .is-shake & {
@@ -253,24 +249,6 @@
 
     :global(.group-button:not(:empty)) {
       margin-top: 24px;
-    }
-  }
-
-  @keyframes blowUp {
-    from {
-      transform: scale(0);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
-
-  @keyframes toast {
-    from {
-      transform: translateY(100%);
-    }
-    to {
-      transform: translateY(0);
     }
   }
 
