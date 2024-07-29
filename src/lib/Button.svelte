@@ -171,20 +171,20 @@
     }
 
     &--primary {
-      @include button(var(--walk__purple), var(--walk__purple--500), var(--walk__purple--700));
+      @include button(var(--walk__purple), var(--walk__purple), var(--walk__purple--700));
     }
 
     &--secondary {
-      @include button(#fff, var(--walk__black--50), var(--walk__black--200));
+      @include button(#fff, #fff, var(--walk__black--200));
       border: 1px solid var(--border-color);
     }
 
     &--tertiary {
-      @include button(#fff, var(--walk__black--50), var(--walk__black--100), #fff);
+      @include button(#fff, #fff, var(--walk__black--100), #fff);
     }
 
     &--text {
-      @include button(transparent, var(--walk__black--50), var(--walk__black--100), transparent);
+      @include button(transparent, transparent, var(--walk__black--100), transparent);
     }
 
     &__icon {
