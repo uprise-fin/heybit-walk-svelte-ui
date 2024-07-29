@@ -20,6 +20,8 @@
 
   let shakeAnimation = false;
 
+  const defaultIconSize = 100;
+
   const dispatch = createEventDispatcher<{ close: undefined }>();
 
   $: availableCloseButton = !keepDialog && showCloseButton;
@@ -57,7 +59,12 @@
         <slot name="icon"></slot>
         {#if icon?.src}
           <i class="dialog__icon">
-            <img src={icon.src} alt="" width={icon.width || 120} height={icon.height || 120} />
+            <img
+              src={icon.src}
+              alt=""
+              width={icon.width || defaultIconSize}
+              height={icon.height || defaultIconSize}
+            />
           </i>
         {/if}
         <h1 class="dialog__title">{@html title}</h1>
