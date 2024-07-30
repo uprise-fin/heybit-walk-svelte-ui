@@ -119,7 +119,7 @@
     transition: border 0.1s;
 
     &:focus-within:not(.input--disabled) {
-      outline-color: var(--walk__black);
+      border-color: var(--walk__black);
     }
 
     &--disabled {
