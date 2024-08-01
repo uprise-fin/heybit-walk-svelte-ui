@@ -36,7 +36,7 @@
 
 <div class="input-wrap" style={`--height: ${height}`}>
   {#if label}
-    <label class="input-wrap__label" class:input-wrap__label--error={hasError} for={_id}>
+    <label class="input-wrap__label" for={_id}>
       {label}
       {#if required}
         <em class="input-wrap__required">
