@@ -126,7 +126,8 @@
     }
 
     &__container {
-      overflow: auto;
+      display: flex;
+      flex-flow: column;
       box-sizing: border-box;
       position: relative;
       width: min(calc((100% - 6px) - 2em), var(--width));
@@ -215,6 +216,7 @@
       }
 
       &--fullscreen {
+        flex: 0 0 auto;
         float: none;
         display: block;
         margin: 24px auto 0;
@@ -240,6 +242,7 @@
     }
 
     &__body {
+      overflow: auto;
       font-weight: 400;
       font-size: 13px;
       line-height: 1.5;
