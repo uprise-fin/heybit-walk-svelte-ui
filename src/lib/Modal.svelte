@@ -130,8 +130,8 @@
       flex-flow: column;
       box-sizing: border-box;
       position: relative;
-      width: min(calc((100% - 6px) - 2em), var(--width));
-      max-height: calc((100% - 6px) - 2em);
+      width: min(calc(100% - 20px * 2), var(--width));
+      max-height: calc(100% - 40px);
       margin: auto;
       padding: var(--padding-block) 20px;
       border-radius: 28px;
