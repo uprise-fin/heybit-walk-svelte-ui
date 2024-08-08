@@ -1,6 +1,7 @@
 <script lang="ts">
   import Loader from './Loader.svelte';
 
+  export let checked = false;
   export let disabled = false;
   export let loading = false;
 
@@ -8,10 +9,17 @@
 </script>
 
 <label class="switch">
-  <input class="switch__input" type="checkbox" {...$$restProps} disabled={_disabled} on:change />
+  <input
+    class="switch__input"
+    type="checkbox"
+    {checked}
+    {...$$restProps}
+    disabled={_disabled}
+    on:change
+  />
   <span class="switch__slider"></span>
   {#if loading}
-    <Loader color="var(--walk__primary)" />
+    <Loader color={checked ? '#fff' : 'var(--walk__primary)'} />
   {/if}
 </label>
 
