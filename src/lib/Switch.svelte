@@ -12,7 +12,7 @@
   <input
     class="switch__input"
     type="checkbox"
-    {checked}
+    bind:checked
     {...$$restProps}
     disabled={_disabled}
     on:change
