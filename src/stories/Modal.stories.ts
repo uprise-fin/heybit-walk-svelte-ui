@@ -39,7 +39,6 @@ const meta = {
       options: layout
     },
     showCloseButton: {
-      // description: 'layout이 fullscreen인 경우에는 기본 값이 false입니다.',
       table: {
         type: {
           summary: 'boolean'
@@ -62,6 +61,15 @@ const meta = {
           summary: '{ src: string, width: number, height: number }'
         }
       }
+    },
+    dimOpacity: {
+      table: {
+        type: {
+          summary: 'number'
+        },
+        defaultValue: { summary: '0.4' }
+      },
+      control: 'number'
     },
     class: {
       table: {

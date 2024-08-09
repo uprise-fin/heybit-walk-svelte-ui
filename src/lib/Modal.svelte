@@ -15,6 +15,7 @@
   export let background = layout === 'fullscreen' ? 'transparent' : '#fff';
   export let icon: Partial<IconSource> | undefined = undefined;
   export let zIndex = 1000;
+  export let dimOpacity = layout === 'fullscreen' ? 0.8 : 0.4;
   export { additionalClass as class };
 
   let additionalClass = '';
@@ -46,7 +47,7 @@
     class={['dialog', `is-${layout}`, additionalClass].join(' ')}
     class:is-shake={shakeAnimation}
     class:dialog--toast={toast}
-    style={`--width: ${width}; --background: ${background}; --z-index: ${zIndex}`}
+    style={`--width: ${width}; --background: ${background}; --z-index: ${zIndex}; --dim-opacity: ${dimOpacity}`}
   >
     <span class="dialog__backdrop" aria-hidden="true" on:click={handleClick} />
 
@@ -112,11 +113,7 @@
       right: 0;
       bottom: 0;
       background: #000;
-      opacity: 0.4;
-
-      .is-fullscreen & {
-        opacity: 0.8;
-      }
+      opacity: var(--dim-opacity);
     }
 
     &.is-fullscreen {
