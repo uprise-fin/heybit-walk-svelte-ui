@@ -14,6 +14,7 @@
   export let footers: Partial<ButtonOption>[] | undefined = undefined;
   export let background = layout === 'fullscreen' ? 'transparent' : '#fff';
   export let icon: Partial<IconSource> | undefined = undefined;
+  export let zIndex = 1000;
   export { additionalClass as class };
 
   let additionalClass = '';
@@ -45,7 +46,7 @@
     class={['dialog', `is-${layout}`, additionalClass].join(' ')}
     class:is-shake={shakeAnimation}
     class:dialog--toast={toast}
-    style={`--width: ${width}; --background: ${background};`}
+    style={`--width: ${width}; --background: ${background}; --z-index: ${zIndex}`}
   >
     <span class="dialog__backdrop" aria-hidden="true" on:click={handleClick} />
 
@@ -94,7 +95,7 @@
 
     display: flex;
     position: fixed;
-    z-index: 1000;
+    z-index: var(--z-index);
     left: 0;
     top: 0;
     right: 0;
