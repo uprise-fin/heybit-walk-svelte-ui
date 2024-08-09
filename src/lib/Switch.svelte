@@ -25,6 +25,7 @@
 
 <style lang="scss">
   .switch {
+    overflow: hidden;
     position: relative;
     display: inline-grid;
     vertical-align: middle;
@@ -82,6 +83,7 @@
     :global(.loader) {
       position: absolute;
       inset: 0;
+      margin: auto;
     }
 
     :global(.loader__svg) {

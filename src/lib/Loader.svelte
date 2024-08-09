@@ -13,6 +13,8 @@
   .loader {
     display: inline-grid;
     place-items: center;
+    width: min(100%, 40px);
+    aspect-ratio: 1;
     background: var(--background);
     border-radius: 100%;
 
