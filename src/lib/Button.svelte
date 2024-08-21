@@ -21,9 +21,11 @@
   export let disabled = false;
   export let href: string | undefined = undefined;
   export let target: HTMLAttributeAnchorTarget | undefined = undefined;
-  export let rel: string | undefined = target === '_blank' ? 'noreferrer noopener' : undefined;
+  export let rel: string | undefined = undefined;
   export let icon: IconSource | undefined = undefined;
   export let color = '';
+
+  $: _rel = rel || target === '_blank' ? 'noreferrer noopener' : undefined;
 
   const el = href ? 'a' : 'button';
 
@@ -47,7 +49,7 @@
   {...$$restProps}
   {href}
   {target}
-  {rel}
+  rel={_rel}
   disabled={_disabled}
   class={['button', `button--${size}`, `button--${theme}`, `button--${shape}`].join(' ')}
   class:is-loading={loading}

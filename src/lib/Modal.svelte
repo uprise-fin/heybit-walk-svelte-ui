@@ -12,11 +12,14 @@
   export let layout: Layout = 'centered';
   export let showCloseButton = true;
   export let footers: Partial<ButtonOption>[] | undefined = undefined;
-  export let background = layout === 'fullscreen' ? 'transparent' : '#fff';
+  export let background = '';
   export let icon: Partial<IconSource> | undefined = undefined;
   export let zIndex = 1000;
-  export let dimOpacity = layout === 'fullscreen' ? 0.8 : 0.4;
+  export let dimOpacity = 0;
   export { additionalClass as class };
+
+  $: _background = background || layout === 'fullscreen' ? 'transparent' : '#fff';
+  $: _dimOpacity = dimOpacity || layout === 'fullscreen' ? 0.8 : 0.4;
 
   let additionalClass = '';
 
@@ -47,7 +50,7 @@
     class={['dialog', `is-${layout}`, additionalClass].join(' ')}
     class:is-shake={shakeAnimation}
     class:dialog--toast={toast}
-    style={`--width: ${width}; --background: ${background}; --z-index: ${zIndex}; --dim-opacity: ${dimOpacity}`}
+    style={`--width: ${width}; --background: ${_background}; --z-index: ${zIndex}; --dim-opacity: ${_dimOpacity}`}
   >
     <span class="dialog__backdrop" aria-hidden="true" on:click={handleClick} />
 
