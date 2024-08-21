@@ -18,8 +18,8 @@
   export let dimOpacity = 0;
   export { additionalClass as class };
 
-  $: _background = background || layout === 'fullscreen' ? 'transparent' : '#fff';
-  $: _dimOpacity = dimOpacity || layout === 'fullscreen' ? 0.8 : 0.4;
+  $: _background = background || (layout === 'fullscreen' ? 'transparent' : '#fff');
+  $: _dimOpacity = dimOpacity || (layout === 'fullscreen' ? 0.8 : 0.4);
 
   let additionalClass = '';
 
