@@ -25,7 +25,7 @@
   export let icon: IconSource | undefined = undefined;
   export let color = '';
 
-  $: _rel = rel || target === '_blank' ? 'noreferrer noopener' : undefined;
+  $: _rel = rel || (target === '_blank' ? 'noreferrer noopener' : undefined);
 
   const el = href ? 'a' : 'button';
 
