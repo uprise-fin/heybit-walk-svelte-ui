@@ -14,7 +14,7 @@ const meta = {
     toast: {
       description: 'toast 모드로 노출합니다.'
     },
-    keepDialog: {
+    persistent: {
       description: 'X(닫기) 버튼이나 외부 영역 클릭 시 dialog 요소를 닫지 않습니다.'
     },
     footers: {
@@ -119,10 +119,10 @@ export const toast = {
   }
 };
 
-export const keepDialog = {
+export const persistent = {
   args: {
     ...basic.args,
-    keepDialog: true
+    persistent: true
   }
 };
 

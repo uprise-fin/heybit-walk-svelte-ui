@@ -7,7 +7,7 @@
   export let toast = false;
   export let title = '';
   export let content = '';
-  export let keepDialog = false;
+  export let persistent = false;
   export let isVerticalLayout = false;
   export let layout: Layout = 'centered';
   export let showCloseButton = true;
@@ -29,7 +29,7 @@
 
   const dispatch = createEventDispatcher<{ close: undefined }>();
 
-  $: availableCloseButton = !keepDialog && showCloseButton;
+  $: availableCloseButton = !persistent && showCloseButton;
 
   const closeModal = () => {
     open = false;
@@ -41,7 +41,7 @@
   };
 
   const handleClick = () => {
-    keepDialog ? unableToClose() : closeModal();
+    persistent ? unableToClose() : closeModal();
   };
 </script>
 
