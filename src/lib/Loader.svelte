@@ -19,7 +19,7 @@
     border-radius: 100%;
 
     &__svg {
-      width: 22px;
+      width: 55%;
       animation: rotate 2s linear infinite;
     }
     &__circle {

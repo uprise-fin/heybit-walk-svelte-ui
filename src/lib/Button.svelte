@@ -144,6 +144,10 @@
       height: 36px;
       padding-inline: 12px;
       font-size: 13px;
+
+      :global(.loader) {
+        width: 32px;
+      }
     }
 
     &--small {
