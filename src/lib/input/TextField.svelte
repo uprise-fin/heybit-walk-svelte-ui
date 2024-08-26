@@ -140,7 +140,7 @@
       box-sizing: border-box;
       width: 100%;
       height: var(--height);
-      padding-block: var(--padding);
+      padding: var(--padding) 0;
       background: none;
       border: 0;
       outline: 0;
