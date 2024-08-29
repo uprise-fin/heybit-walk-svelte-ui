@@ -229,6 +229,7 @@
       position: relative;
       margin: 0;
       padding: 0 0 0 14px;
+      text-align: left;
 
       &::before {
         content: '';
