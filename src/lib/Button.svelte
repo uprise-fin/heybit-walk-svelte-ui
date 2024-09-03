@@ -68,11 +68,11 @@
   };
   $: _backgroundActive = () => {
     if (!background) return backgroundColors[theme].active;
-    return Array.isArray(background) ? background[1] : background;
+    return Array.isArray(background) ? background[1] || _background() : background;
   };
   $: _backgroundHover = () => {
     if (!background) return backgroundColors[theme].default;
-    return Array.isArray(background) ? background[2] : background;
+    return Array.isArray(background) ? background[2] || _background() : background;
   };
 </script>
 
