@@ -63,6 +63,12 @@ const meta = {
         type: { summary: 'string' }
       },
       control: 'color'
+    },
+    background: {
+      table: {
+        type: { summary: 'string' }
+      },
+      control: 'color'
     }
   }
 } satisfies Meta<Button>;

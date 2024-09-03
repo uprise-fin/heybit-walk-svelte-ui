@@ -24,6 +24,7 @@
   export let rel: string | undefined = undefined;
   export let icon: IconSource | undefined = undefined;
   export let color = '';
+  export let background = '';
 
   $: _rel = rel || (target === '_blank' ? 'noreferrer noopener' : undefined);
 
@@ -39,9 +40,30 @@
     dispatch('click', e);
   };
 
+  const backgroundColors: Record<Theme, Record<string, string>> = {
+    primary: {
+      default: 'var(--walk__purple)',
+      active: 'var(--walk__purple--700)'
+    },
+    secondary: {
+      default: '#fff',
+      active: 'var(--walk__black--200)'
+    },
+    tertiary: {
+      default: '#fff',
+      active: 'var(--walk__black--100)'
+    },
+    text: {
+      default: 'transparent',
+      active: 'var(--walk__black--100)'
+    }
+  };
+
   $: _isDarkTheme = ['primary'].includes(theme);
   $: _color = color || (_isDarkTheme ? '#fff' : 'var(--walk__black)');
   $: _disabled = disabled || loading;
+  $: _background = background || backgroundColors[theme].default;
+  $: _backgroundActive = background || backgroundColors[theme].active;
 </script>
 
 <svelte:element
@@ -53,7 +75,7 @@
   disabled={_disabled}
   class={['button', `button--${size}`, `button--${theme}`, `button--${shape}`].join(' ')}
   class:is-loading={loading}
-  style={`--color: ${_color}; --border-color: ${color || 'var(--walk__black--300)'}; --transition-duration: ${TRANSITION_DURATION}ms;`}
+  style={`--color: ${_color}; --background: ${_background}; --background-active: ${_backgroundActive}; --border-color: ${color || 'var(--walk__black--300)'}; --transition-duration: ${TRANSITION_DURATION}ms;`}
   role="presentation"
   on:click={handleClick}
 >
@@ -177,20 +199,20 @@
     }
 
     &--primary {
-      @include button(var(--walk__purple), var(--walk__purple), var(--walk__purple--700));
+      @include button(var(--background), var(--background), var(--background-active));
     }
 
     &--secondary {
-      @include button(#fff, #fff, var(--walk__black--200));
+      @include button(var(--background), var(--background), var(--background-active));
       border: 1px solid var(--border-color);
     }
 
     &--tertiary {
-      @include button(#fff, #fff, var(--walk__black--100), #fff);
+      @include button(var(--background), var(--background), var(--background-active), #fff);
     }
 
     &--text {
-      @include button(transparent, transparent, var(--walk__black--100), transparent);
+      @include button(var(--background), var(--background), var(--background-active), transparent);
     }
 
     &__icon {
