@@ -99,7 +99,7 @@
 </svelte:element>
 
 <style lang="scss">
-  @mixin button($color, $hover: $color, $press: $color, $disabled: var(--walk__black--100)) {
+  @mixin button($color, $press: $color, $hover: $color, $disabled: var(--walk__black--100)) {
     background: $color;
 
     &:hover {
@@ -205,20 +205,20 @@
     }
 
     &--primary {
-      @include button(var(--background), var(--background), var(--background-active));
+      @include button(var(--background), var(--background-active), var(--background));
     }
 
     &--secondary {
-      @include button(var(--background), var(--background), var(--background-active));
+      @include button(var(--background), var(--background-active), var(--background));
       border: 1px solid var(--border-color);
     }
 
     &--tertiary {
-      @include button(var(--background), var(--background), var(--background-active), #fff);
+      @include button(var(--background), var(--background-active), var(--background), #fff);
     }
 
     &--text {
-      @include button(var(--background), var(--background), var(--background-active), transparent);
+      @include button(var(--background), var(--background-active), var(--background), transparent);
     }
 
     &__icon {
