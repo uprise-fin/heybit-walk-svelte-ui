@@ -65,10 +65,7 @@ const meta = {
       control: 'color'
     },
     background: {
-      table: {
-        type: { summary: 'string' }
-      },
-      control: 'color'
+      disable: true
     }
   }
 } satisfies Meta<Button>;
