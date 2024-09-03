@@ -24,7 +24,7 @@
   export let rel: string | undefined = undefined;
   export let icon: IconSource | undefined = undefined;
   export let color = '';
-  export let background = '';
+  export let background: string[] | string = '';
 
   $: _rel = rel || (target === '_blank' ? 'noreferrer noopener' : undefined);
 
@@ -62,8 +62,14 @@
   $: _isDarkTheme = ['primary'].includes(theme);
   $: _color = color || (_isDarkTheme ? '#fff' : 'var(--walk__black)');
   $: _disabled = disabled || loading;
-  $: _background = background || backgroundColors[theme].default;
-  $: _backgroundActive = background || backgroundColors[theme].active;
+  $: _background = () => {
+    if (!background) return backgroundColors[theme].default;
+    return Array.isArray(background) ? background[0] : background;
+  };
+  $: _backgroundActive = () => {
+    if (!background) return backgroundColors[theme].active;
+    return Array.isArray(background) ? background[1] : background;
+  };
 </script>
 
 <svelte:element
@@ -75,7 +81,7 @@
   disabled={_disabled}
   class={['button', `button--${size}`, `button--${theme}`, `button--${shape}`].join(' ')}
   class:is-loading={loading}
-  style={`--color: ${_color}; --background: ${_background}; --background-active: ${_backgroundActive}; --border-color: ${color || 'var(--walk__black--300)'}; --transition-duration: ${TRANSITION_DURATION}ms;`}
+  style={`--color: ${_color}; --background: ${_background()}; --background-active: ${_backgroundActive()}; --border-color: ${color || 'var(--walk__black--300)'}; --transition-duration: ${TRANSITION_DURATION}ms;`}
   role="presentation"
   on:click={handleClick}
 >
