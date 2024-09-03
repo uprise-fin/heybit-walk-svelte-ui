@@ -70,6 +70,10 @@
     if (!background) return backgroundColors[theme].active;
     return Array.isArray(background) ? background[1] : background;
   };
+  $: _backgroundHover = () => {
+    if (!background) return backgroundColors[theme].default;
+    return Array.isArray(background) ? background[2] : background;
+  };
 </script>
 
 <svelte:element
@@ -81,7 +85,7 @@
   disabled={_disabled}
   class={['button', `button--${size}`, `button--${theme}`, `button--${shape}`].join(' ')}
   class:is-loading={loading}
-  style={`--color: ${_color}; --background: ${_background()}; --background-active: ${_backgroundActive()}; --border-color: ${color || 'var(--walk__black--300)'}; --transition-duration: ${TRANSITION_DURATION}ms;`}
+  style={`--color: ${_color}; --background: ${_background()}; --background-active: ${_backgroundActive()}; --background-hover: ${_backgroundHover()}; --border-color: ${color || 'var(--walk__black--300)'}; --transition-duration: ${TRANSITION_DURATION}ms;`}
   role="presentation"
   on:click={handleClick}
 >
@@ -205,20 +209,25 @@
     }
 
     &--primary {
-      @include button(var(--background), var(--background-active), var(--background));
+      @include button(var(--background), var(--background-active), var(--background-hover));
     }
 
     &--secondary {
-      @include button(var(--background), var(--background-active), var(--background));
+      @include button(var(--background), var(--background-active), var(--background-hover));
       border: 1px solid var(--border-color);
     }
 
     &--tertiary {
-      @include button(var(--background), var(--background-active), var(--background), #fff);
+      @include button(var(--background), var(--background-active), var(--background-hover), #fff);
     }
 
     &--text {
-      @include button(var(--background), var(--background-active), var(--background), transparent);
+      @include button(
+        var(--background),
+        var(--background-active),
+        var(--background-hover),
+        transparent
+      );
     }
 
     &__icon {
