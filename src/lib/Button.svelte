@@ -1,19 +1,15 @@
-<script lang="ts" context="module">
-  export const walkButtonShapes = ['rounded'] as const;
-  export type WalkButtonShape = (typeof walkButtonShapes)[number];
-</script>
-
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import {
     Loader,
     type HTMLAttributeAnchorTarget,
     type IconSource,
+    type Shape,
     type Size,
     type Theme
   } from '.';
 
-  export let shape: WalkButtonShape = 'rounded';
+  export let shape: Shape = 'rounded';
   export let size: Size = 'medium';
   export let theme: Theme = 'primary';
   export let label = '';

@@ -1,6 +1,9 @@
 export const htmlAttributeAnchorTarget = ['_self', '_blank', '_parent', '_top'] as const;
 export type HTMLAttributeAnchorTarget = (typeof htmlAttributeAnchorTarget)[number];
 
+export const shape = ['rounded'] as const;
+export type Shape = (typeof shape)[number];
+
 export const sizes = ['x-small', 'small', 'medium', 'large', 'x-large'] as const;
 export type Size = (typeof sizes)[number];
 
@@ -12,14 +15,18 @@ export type Layout = (typeof layout)[number];
 
 export type ButtonOption = {
   type: 'button' | 'submit' | 'reset';
+  shape: Shape;
+  size: Size;
   theme: Theme;
   label: string;
-  disabled: boolean;
   loading: boolean;
+  disabled: boolean;
   href: string;
   target: HTMLAttributeAnchorTarget;
   rel: string;
   icon: IconSource;
+  color: string;
+  background: string[] | string;
   handler: () => void;
 };
 
