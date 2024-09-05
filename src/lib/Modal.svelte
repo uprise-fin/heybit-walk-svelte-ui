@@ -142,6 +142,10 @@
         text-align: center;
       }
 
+      .is-fullscreen & {
+        padding-inline: 0;
+      }
+
       .dialog--toast & {
         align-self: flex-end;
         width: 100%;
