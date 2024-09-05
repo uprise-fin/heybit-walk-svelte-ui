@@ -248,6 +248,7 @@
 
     &__body {
       overflow: auto;
+      min-height: 2.5em;
       font-weight: 400;
       font-size: 13px;
       line-height: 1.5;
