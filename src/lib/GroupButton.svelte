@@ -24,7 +24,7 @@
 <style lang="scss">
   .group-button {
     --gap: 8px;
-    padding-block: 20px;
+    padding: 20px;
     background: var(--background);
     text-align: center;
 
