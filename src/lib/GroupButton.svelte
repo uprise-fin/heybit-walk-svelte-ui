@@ -30,6 +30,7 @@
 
     &__outer {
       width: min(100%, var(--max-width));
+      margin: 0 auto;
     }
 
     &__inner {
