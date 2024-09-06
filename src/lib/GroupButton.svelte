@@ -1,19 +1,23 @@
 <script lang="ts">
   import { Button, type ButtonOption } from '.';
 
+  export let width = '502px';
   export let isVerticalLayout = false;
   export let footers: Partial<ButtonOption>[] | undefined = undefined;
-  export let background = 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%)';
+  export let background =
+    'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 15.46%, #FFFFFF 82.53%)';
 </script>
 
-<div class="group-button" style={`--background: ${background}`}>
-  <slot />
-  <div class="group-button__inner" class:is-vertical={isVerticalLayout}>
-    {#if footers}
-      {#each footers as footer}
-        <Button {...footer} on:click={footer.handler} />
-      {/each}
-    {/if}
+<div class="group-button" style={`--background: ${background}; --max-width: ${width};`}>
+  <div class="group-button__outer">
+    <slot />
+    <div class="group-button__inner" class:is-vertical={isVerticalLayout}>
+      {#if footers}
+        {#each footers as footer}
+          <Button {...footer} on:click={footer.handler} />
+        {/each}
+      {/if}
+    </div>
   </div>
 </div>
 
@@ -23,6 +27,10 @@
     padding-block: 20px;
     background: var(--background);
     text-align: center;
+
+    &__outer {
+      width: min(100%, var(--max-width));
+    }
 
     &__inner {
       display: flex;

@@ -81,7 +81,7 @@
       </div>
 
       {#if footers?.length}
-        <GroupButton {footers} {isVerticalLayout} background="none" />
+        <GroupButton {footers} {isVerticalLayout} background="none" width="100%" />
       {/if}
 
       {#if layout === 'fullscreen' && availableCloseButton}
