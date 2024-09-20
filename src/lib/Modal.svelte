@@ -29,8 +29,6 @@
 
   const dispatch = createEventDispatcher<{ close: undefined }>();
 
-  $: availableCloseButton = !persistent && showCloseButton;
-
   const closeModal = () => {
     open = false;
     dispatch('close');
@@ -56,7 +54,7 @@
 
     <article class="dialog__container">
       <header class="dialog__header">
-        {#if layout !== 'fullscreen' && availableCloseButton}
+        {#if layout !== 'fullscreen' && showCloseButton}
           <button class="dialog__close" on:click={closeModal}>
             <span class="dialog__close-inner">close</span>
           </button>
@@ -84,7 +82,7 @@
         <GroupButton {footers} {isVerticalLayout} background="none" width="100%" />
       {/if}
 
-      {#if layout === 'fullscreen' && availableCloseButton}
+      {#if layout === 'fullscreen' && showCloseButton}
         <button class="dialog__close dialog__close--fullscreen" on:click={closeModal}>
           <span class="dialog__close-inner">close</span>
         </button>

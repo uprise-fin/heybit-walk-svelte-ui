@@ -122,7 +122,8 @@ export const toast = {
 export const persistent = {
   args: {
     ...basic.args,
-    persistent: true
+    persistent: true,
+    showCloseButton: false
   }
 };
 
