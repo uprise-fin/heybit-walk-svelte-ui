@@ -32,6 +32,7 @@ export type IconName =
   | 'ic/outline/refresh'
   | 'ic/outline/send'
   | 'ic/outline/setting'
+  | 'ic/outline/share'
   | 'ic/outline/sidemenu'
   | 'ic/outline/swap'
   | 'ic/outline/warning'
